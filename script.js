@@ -148,28 +148,31 @@ function startPhase(phase) {
 function updatePhase() {
     const questions = phaseQuestions[currentPhase];
 
-    // Check if all answers in the current phase are correct
-    if (score === questions.length) {
-        if (currentPhase === "basic") {
-            completedPhases.basic = true;
-            document.getElementById("intermediate-btn").disabled = false; // Enable Intermediate button
-            alert("Congratulations! You unlocked the Intermediate Phase!");
-            showScenarioPage(); // Show the scenario page and stop music
-        } else if (currentPhase === "intermediate") {
-            completedPhases.intermediate = true;
-            document.getElementById("advanced-btn").disabled = false; // Enable Advanced button
-            alert("Great work! You unlocked the Advanced Phase!");
-            showScenarioPage(); // Show the scenario page and stop music
-        } else if (currentPhase === "advanced") {
-            completedPhases.advanced = true;
-            alert("Quiz Completed!");
-            showCongratulationsPage(); // Show the congratulations page and stop music
-        }
+// Function to update the phase and handle transitions
+function updatePhase() {
+    const questions = phaseQuestions[currentPhase];
+
+    // Check if the user meets the score requirements for each phase
+    if (currentPhase === "basic" && score >= 20) {
+        completedPhases.basic = true;
+        document.getElementById("intermediate-btn").disabled = false; // Enable Intermediate button
+        alert("Congratulations! You scored " + score + "/25 and unlocked the Intermediate Phase!");
+        showScenarioPage(); // Show the scenario page and stop music
+    } else if (currentPhase === "intermediate" && score >= 10) {
+        completedPhases.intermediate = true;
+        document.getElementById("advanced-btn").disabled = false; // Enable Advanced button
+        alert("Great work! You scored " + score + "/15 and unlocked the Advanced Phase!");
+        showScenarioPage(); // Show the scenario page and stop music
+    } else if (currentPhase === "advanced" && score === questions.length) {
+        completedPhases.advanced = true;
+        alert("Quiz Completed! You scored " + score + "/" + questions.length);
+        showCongratulationsPage(); // Show the congratulations page and stop music
     } else {
-        alert(`You scored ${score}/${questions.length}. Try again to unlock the next phase!`);
+        alert(`You scored ${score}/${questions.length}. You need a higher score to unlock the next phase!`);
         showScenarioPage(); // Show the scenario page and stop music
     }
 }
+
 
 // Function to check the answer
 function checkAnswer(selectedOption, correctAnswer, element) {
