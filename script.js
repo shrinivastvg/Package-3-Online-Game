@@ -173,7 +173,7 @@ function updatePhase() {
         showScenarioPage(); // Show the scenario page and stop music
     } else if (currentPhase === "advanced" && score === questions.length) {
         completedPhases.advanced = true;
-        alert("Quiz Completed! You scored " + score + "/" + questions.length);
+        alert("Game Completed! You scored " + score + "/" + questions.length);
         showCongratulationsPage(); // Show the congratulations page and stop music
     } else {
         alert(`You scored ${score}/${questions.length}. You need a higher score to unlock the next phase!`);
