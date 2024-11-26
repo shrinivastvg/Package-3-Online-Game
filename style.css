@@ -192,6 +192,7 @@ body {
     #welcome-container {
         flex-direction: column;
         text-align: center;
+        height: auto;
         padding: 15px;
     }
 
