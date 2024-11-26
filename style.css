@@ -1,3 +1,4 @@
+/* Global Styles */
 body {
     font-family: Arial, sans-serif;
     text-align: center;
@@ -185,6 +186,133 @@ body {
     box-shadow: none;
 }
 
+/* Media Queries for Responsive Design */
+@media (max-width: 768px) {
+    /* Welcome Page */
+    #welcome-container {
+        flex-direction: column;
+        text-align: center;
+        padding: 15px;
+    }
+
+    #welcome-text {
+        padding-right: 0;
+        margin-bottom: 15px;
+    }
+
+    #welcome-text h1 {
+        font-size: 1.8em;
+    }
+
+    #welcome-image {
+        max-height: 150px;
+    }
+
+    #user-form input {
+        max-width: 100%;
+    }
+
+    #user-form button {
+        width: 100%;
+    }
+
+    /* Scenario Page */
+    .scenario-container {
+        flex-direction: column;
+        width: 100%;
+        padding: 15px;
+    }
+
+    .scenario-left {
+        padding: 10px 0;
+    }
+
+    .scenario-left h2 {
+        font-size: 1.5em;
+    }
+
+    .scenario-right {
+        margin-top: 15px;
+    }
+
+    .difficulty-buttons {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .difficulty-buttons button {
+        flex: 1 1 calc(50% - 10px);
+    }
+
+    /* Quiz Section */
+    #quiz-wrapper {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 15px;
+    }
+
+    #content-wrapper {
+        align-items: center;
+    }
+
+    #question-section {
+        margin-right: 0;
+        margin-bottom: 15px;
+        text-align: center;
+    }
+
+    #timer-score-container {
+        align-items: stretch;
+    }
+
+    #timer {
+        width: 100px;
+        height: 100px;
+    }
+
+    #time-left {
+        font-size: 1.2em;
+    }
+
+    #score-display {
+        font-size: 1em;
+    }
+
+    /* Congratulations Page */
+    .congratulations-container {
+        padding: 15px 20px;
+    }
+
+    .congratulations-container h2 {
+        font-size: 1.8em;
+    }
+
+    .congratulations-container p {
+        font-size: 1em;
+    }
+
+    .congratulations-container button {
+        padding: 8px 16px;
+        font-size: 0.9em;
+    }
+
+    /* Sound Control */
+    #sound-control {
+        flex-direction: row;
+        justify-content: space-between;
+        margin: 5px 10px;
+    }
+
+    #sound-icon {
+        width: 20px;
+        height: 20px;
+    }
+
+    #mute-button {
+        font-size: 12px;
+        padding: 4px 8px;
+    }
+}
 /* Quiz Layout */
 #quiz-wrapper {
     position: relative; /* Ensure layering with the background image */
