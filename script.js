@@ -173,7 +173,6 @@ function updatePhase() {
     }
 }
 
-
 // Function to check the answer
 function checkAnswer(selectedOption, correctAnswer, element) {
     if (selectedOption === correctAnswer) {
