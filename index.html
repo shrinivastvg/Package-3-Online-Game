@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Quiz</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Welcome Page -->
+<div id="welcome-page">
+    <div id="welcome-container">
+        <div id="welcome-text">
+            <h1>Welcome to the Online Game on Environmental and Social Management Framework (ECSMF) </h1>
+            <p>Please enter your details to start the quiz.</p>
+        </div>
+        <div id="welcome-right">
+            <img src="C:\Users\shrinivas.taranalaka\Desktop\Online Game\5\ESCMF.jpg"alt="Welcome Image" id="welcome-image">
+            <form id="user-form">
+                <label for="name">Name:</label>
+                <input type="text" id="name" placeholder="Enter your name">
+                <label for="department">Department:</label>
+                <input type="text" id="department" placeholder="Enter your department">
+                <label for="designation">Designation:</label>
+                <input type="text" id="designation" placeholder="Enter your designation">
+                <button type="button" onclick="navigateToScenario()">Start Quiz</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Scenario Page -->
+<div id="scenario-page" style="display: none;">
+    <div class="scenario-container">
+        <div class="scenario-left">
+            <h2>Case Study Scenario: Preparation of ECSMF for a Water Supply Project in a Small Town on the Banks of River Kaveri in Tamil Nadu</h2>
+            <h3>Background:</h3>
+            <p>
+                A small town on the banks of the River Kaveri is experiencing increasing demand for drinking water due to population growth and industrial development. The town proposes a water supply improvement project, including the development of an intake structure at the river, a water treatment plant (WTP), and a distribution network.
+            </p>
+            <h3>Objective:</h3>
+            <p>
+                Develop and implement an Environmental, Climate Change, and Social Management Framework (ECSMF) for this project to address environmental, climate, and social risks.
+            </p>
+            <h3>Learning Progression Through Game Levels:</h3>
+            <p>
+                The game progresses through Basic, Intermediate, and Advanced levels, helping participants gradually master ECSMF preparation.
+            </p>
+            <ul>
+                <li><strong>Basic level:</strong> Covers foundational concepts like definitions, laws, and ECSMF objectives.</li>
+                <li><strong>Intermediate level:</strong> Introduces practical scenarios on risk categorization, stakeholder engagement, and grievance mechanisms.</li>
+                <li><strong>Advanced level:</strong> Focuses on designing mitigation strategies and compliance monitoring.</li>
+            </ul>
+            <p>
+                By completing all levels, participants gain a comprehensive understanding of ECSMF and the skills to address risks in water supply projects.
+            </p>
+        </div>
+    </div>
+
+    <!-- Difficulty Buttons (only on Scenario Page) -->
+    <div class="difficulty-buttons">
+        <button id="basic-btn" onclick="startPhase('basic')">Basic</button>
+        <button id="intermediate-btn" disabled onclick="startPhase('intermediate')">Intermediate</button>
+        <button id="advanced-btn" disabled onclick="startPhase('advanced')">Advanced</button>
+    </div>
+</div>
+
+<!-- Quiz Container -->
+<div id="quiz-container" style="display: none;">
+    <!-- Background Image -->
+    <img id="quiz-background-image" src="C:\Users\shrinivas.taranalaka\Desktop\Online Game\5\Waternetwork-2.jpg" alt="Quiz Background">
+
+    <div id="quiz-wrapper">
+        <!-- Background Music -->
+        <audio id="background-music" loop>
+            <source src="C:\Users\shrinivas.taranalaka\Desktop\Online Game\5\music.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+
+<!-- Mute Button with Sound Icon -->
+<div id="sound-control">
+    <img id="sound-icon" src= "C:\Users\shrinivas.taranalaka\Desktop\Online Game\5\soundicon.jpg" alt="Sound Icon">
+    <button id="mute-button" onclick="toggleMute()">Mute</button>
+</div>
+
+        <!-- Main Content Section -->
+        <div id="content-wrapper">
+            <div id="question-timer-container">
+
+                <!-- Question Section -->
+                <div id="question-section">
+                    <h2 id="question"></h2>
+                    <ul id="options"></ul>
+                </div>
+
+                <!-- Timer and Score Section -->
+                <div id="timer-score-container">
+                    <div id="timer">
+                        <svg>
+                            <circle cx="60" cy="60" r="54"></circle>
+                            <circle id="timer-circle" cx="60" cy="60" r="54"></circle>
+                        </svg>
+                        <span id="time-left">20</span>
+                    </div>
+                    <div id="score-display">
+                        Score: <span id="score-value">0</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Congratulations Page -->
+<div id="congratulations-page" style="display: none;">
+    <div class="congratulations-container">
+        <h2>Congratulations!</h2>
+        <p>You have successfully completed all phases of the game.</p>
+        <p>Excellent work! You are well-versed in the topic.</p>
+        <button onclick="restartQuiz()">Play Again</button>
+    </div>
+</div>
+
+    <script src="script.js"></script>
+</body>
+</html>
