@@ -148,18 +148,6 @@ function startPhase(phase) {
 function updatePhase() {
     const questions = phaseQuestions[currentPhase];
 
-// Function to update the phase and handle transitions
-function updatePhase() {
-    const questions = phaseQuestions[currentPhase];
-
-// Function to update the phase and handle transitions
-function updatePhase() {
-    const questions = phaseQuestions[currentPhase];
-
-// Function to update the phase and handle transitions
-function updatePhase() {
-    const questions = phaseQuestions[currentPhase];
-
     // Check if the user meets the score requirements for each phase
     if (currentPhase === "basic" && score >= 20) {
         completedPhases.basic = true;
