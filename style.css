@@ -153,24 +153,24 @@ body {
 
 /* Quiz Layout */
 #quiz-wrapper {
-    display: flex;
-    flex-direction: column; /* Stack elements vertically */
-    align-items: center;
-    justify-content: flex-start; /* Align items to the top */
+    display: flex; /* Flexbox for side-by-side alignment */
+    flex-direction: row; /* Arrange items in a row */
+    align-items: flex-start; /* Align items to the top */
+    justify-content: center; /* Center content horizontally */
     width: 100%;
     padding: 20px;
     box-sizing: border-box;
-    background: linear-gradient(135deg, #b3ffb3, #ccffcc, #e6ffe6); /* Background gradient */
+    background: linear-gradient(135deg, #b3ffb3, #ccffcc, #e6ffe6); /* Light green gradient */
     color: #333;
     z-index: 1;
 }
 
 /* Question Section */
 #question-section {
-    width: 100%; /* Full width */
-    max-width: 800px; /* Limit maximum width */
-    margin-bottom: 20px; /* Space below the question box */
-    text-align: center; /* Center-align text inside the question box */
+    flex: 2; /* Take up more space compared to timer and score */
+    max-width: 800px;
+    margin-right: 20px; /* Space between question and timer/score */
+    text-align: center; /* Center-align text */
     font-size: 1.2em;
 }
 
@@ -183,9 +183,9 @@ body {
 #options {
     list-style: none;
     padding: 0;
-    margin: 0 auto;
+    margin: 20px 0 0 0; /* Space between question and options */
     width: 100%;
-    max-width: 600px; /* Restrict width for better readability */
+    max-width: 600px;
 }
 
 #options li {
@@ -214,17 +214,16 @@ body {
 
 /* Timer and Score Section */
 #timer-score-container {
+    flex: 1; /* Smaller width compared to the question box */
     display: flex;
-    flex-direction: row; /* Align timer and score horizontally */
-    justify-content: space-between;
+    flex-direction: column;
     align-items: center;
-    width: 100%;
-    max-width: 600px;
-    margin: 20px auto;
+    justify-content: flex-start; /* Align to the top */
+    gap: 15px; /* Space between timer and score */
 }
 
 #timer {
-    width: 120px;
+    width: 120px; /* Full visibility for timer */
     height: 120px;
     position: relative;
     display: flex;
@@ -241,7 +240,7 @@ body {
 #timer circle {
     fill: none;
     stroke-width: 8;
-    stroke-dasharray: 339.12; /* Circumference: 2πr where r=54 */
+    stroke-dasharray: 339.12; /* Circumference of the circle (2πr where r=54) */
 }
 
 #timer circle:first-child {
@@ -256,12 +255,18 @@ body {
 
 #time-left {
     position: absolute;
-    font-size: 1.2em; /* Adjusted font size */
+    font-size: 1.2em;
     font-weight: bold;
     color: red;
     text-align: center;
 }
 
+#score-display {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+}
 /* Sound Control Section */
 #sound-control {
     display: flex;
@@ -291,11 +296,6 @@ body {
 
 #mute-button:hover {
     background-color: #0056b3;
-}
-#score-display {
-    font-size: 1.2em;
-    font-weight: bold;
-    color: #333;
 }
 
 /* Next Button */
@@ -384,23 +384,29 @@ body {
         width: 100%;
     }
 
-        #quiz-wrapper {
-        padding: 15px;
+    #quiz-wrapper {
+        flex-direction: column; /* Stack items vertically for smaller screens */
+        align-items: center; /* Center-align all content */
     }
 
     #question-section {
-        font-size: 1em; /* Reduce font size for smaller screens */
-        margin-bottom: 15px;
+        margin-right: 0;
+        font-size: 1em; /* Adjust font size for smaller screens */
     }
 
     #options li {
         font-size: 0.9em;
         padding: 10px;
     }
-}
+
+    #timer-score-container {
+        flex-direction: row; /* Align timer and score horizontally on mobile */
+        justify-content: space-between;
+        width: 100%;
+    }
 
     #timer {
-        width: 80px; /* Reduced size for smaller screens */
+        width: 80px; /* Reduce size for mobile screens */
         height: 80px;
     }
 
@@ -410,7 +416,11 @@ body {
     }
 
     #time-left {
-        font-size: 1em; /* Reduced font size for smaller screens */
+        font-size: 1em;
+    }
+
+    #score-display {
+        font-size: 1em;
     }
 
     #sound-icon {
@@ -421,11 +431,6 @@ body {
     #mute-button {
         font-size: 10px; /* Adjust button font size for mobile */
         padding: 4px 8px;
-    }
-}
-
-    #score-display {
-        font-size: 1em;
     }
 
     #next-btn {
