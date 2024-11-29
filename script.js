@@ -59,23 +59,51 @@ intermediate: [
 // Global Variables
 let currentQuestionIndex = 0;
 let score = 0;
-let currentPhase = "basic";
+let currentPhase = "basic"; // Default phase
 let timeLeft = 30;
 let timer;
-let startTime;
-let endTime;
+let startTime; // To track the start time of the quiz
+let endTime; // To track the end time of the quiz
 const completedPhases = { basic: false, intermediate: false, advanced: false };
 
-// Sound Effects
+// Add sound effects
 const correctSound = new Audio("correct.mp3");
 const wrongSound = new Audio("wrong.mp3");
 
+// Get the audio element
+const backgroundMusic = document.getElementById("background-music");
+
+// Function to start the music
+function startMusic() {
+    if (backgroundMusic) backgroundMusic.play();
+}
+
+// Function to stop the music
+function stopMusic() {
+    if (backgroundMusic) {
+        backgroundMusic.pause();
+        backgroundMusic.currentTime = 0; // Reset to the beginning
+    }
+}
+
+// Function to display the quiz and start the music
+function showQuiz() {
+    document.getElementById("quiz-container").style.display = "flex";
+    document.getElementById("scenario-page").style.display = "none";
+    document.getElementById("welcome-page").style.display = "none";
+    document.getElementById("congratulations-page").style.display = "none";
+    startMusic(); // Start the music when the quiz is displayed
+}
+
+// Function to hide the quiz and stop the music
+function hideQuiz() {
+    document.getElementById("quiz-container").style.display = "none";
+    stopMusic(); // Stop the music when the quiz is hidden
+}
+
 // Function to toggle mute/unmute
 function toggleMute() {
-    const backgroundMusic = document.getElementById("background-music");
-
-    if (!backgroundMusic) return; // Exit if audio element is not found
-
+    if (!backgroundMusic) return; // Exit if audio element is missing
     if (backgroundMusic.muted) {
         backgroundMusic.muted = false;
         document.getElementById("mute-button").innerText = "Mute";
@@ -85,42 +113,74 @@ function toggleMute() {
     }
 }
 
-// Function to start a quiz phase
-function startPhase(phase) {
-    currentPhase = phase;
-    currentQuestionIndex = 0;
-    score = 0;
-    document.getElementById("score-value").innerText = score;
-    resetTimer();
-    showQuiz();
-    loadQuestion();
+// Function to show the Scenario Page
+function showScenarioPage() {
+    hideQuiz(); // Stop music and hide the quiz container
+    document.getElementById("scenario-page").style.display = "flex";
 }
 
-// Function to load a question
-function loadQuestion() {
-    const questions = phaseQuestions[currentPhase];
+// Function to show the Congratulations Page
+function showCongratulationsPage() {
+    hideQuiz(); // Stop music and hide the quiz container
+    document.getElementById("congratulations-page").style.display = "flex";
 
-    if (!questions || currentQuestionIndex >= questions.length) {
-        updatePhase();
+    endTime = Date.now(); // Record the end time
+    const totalTime = Math.round((endTime - startTime) / 1000); // Calculate the total time in seconds
+    const congratsPage = document.getElementById("congratulations-page");
+    const timeDisplay = document.createElement("p");
+    timeDisplay.innerText = `Time taken: ${totalTime} seconds`;
+    congratsPage.appendChild(timeDisplay);
+}
+
+// Function to navigate from the Welcome Page to the Scenario Page
+function navigateToScenario() {
+    const name = document.getElementById("name").value;
+    const department = document.getElementById("department").value;
+    const designation = document.getElementById("designation").value;
+
+    if (!name || !department || !designation) {
+        alert("Please enter your name, designation, and department.");
         return;
     }
 
-    const question = questions[currentQuestionIndex];
-    const optionsList = document.getElementById("options");
+    document.getElementById("welcome-page").style.display = "none";
+    document.getElementById("scenario-page").style.display = "flex";
+}
 
-    // Clear previous content
-    document.getElementById("question").innerText = question.question;
-    optionsList.innerHTML = "";
+// Function to start a quiz phase
+function startPhase(phase) {
+    if (!startTime) startTime = Date.now(); // Record start time
+    currentPhase = phase; // Set the current phase
+    currentQuestionIndex = 0; // Reset question index
+    score = 0; // Reset score for the phase
+    document.getElementById("score-value").innerText = score;
 
-    // Display options
-    question.options.forEach((option) => {
-        const li = document.createElement("li");
-        li.innerText = option;
-        li.onclick = () => checkAnswer(option, question.answer, li);
-        optionsList.appendChild(li);
-    });
+    showQuiz(); // Display the quiz
+    loadQuestion(); // Load the first question for the phase
+}
 
-    resetTimer();
+// Function to update the phase and handle transitions
+function updatePhase() {
+    const questions = phaseQuestions[currentPhase];
+
+    if (currentPhase === "basic" && score >= 20) {
+        completedPhases.basic = true;
+        document.getElementById("intermediate-btn").disabled = false;
+        alert(`Congratulations! You scored ${score}/25 and unlocked the Intermediate Phase!`);
+        showScenarioPage();
+    } else if (currentPhase === "intermediate" && score >= 10) {
+        completedPhases.intermediate = true;
+        document.getElementById("advanced-btn").disabled = false;
+        alert(`Great work! You scored ${score}/15 and unlocked the Advanced Phase!`);
+        showScenarioPage();
+    } else if (currentPhase === "advanced" && score === questions.length) {
+        completedPhases.advanced = true;
+        alert(`Game Completed! You scored ${score}/${questions.length}`);
+        showCongratulationsPage();
+    } else {
+        alert(`You scored ${score}/${questions.length}. You need a higher score to unlock the next phase!`);
+        showScenarioPage();
+    }
 }
 
 // Function to check the answer
@@ -133,19 +193,42 @@ function checkAnswer(selectedOption, correctAnswer, element) {
     } else {
         wrongSound.play();
         element.classList.add("incorrect");
-        document.querySelectorAll("#options li").forEach((li) => {
+        document.querySelectorAll("#options li").forEach(li => {
             if (li.innerText === correctAnswer) li.classList.add("correct");
         });
     }
 
-    // Disable all options
-    document.querySelectorAll("#options li").forEach((li) => (li.onclick = null));
-
-    // Show and enable Next button
-    const nextButton = document.getElementById("next-btn");
-    nextButton.style.display = "block";
-    nextButton.disabled = false;
+    document.getElementById("next-btn").disabled = false;
 }
+
+// Function to load a question
+function loadQuestion() {
+    const questions = phaseQuestions[currentPhase];
+    if (currentQuestionIndex >= questions.length) {
+        updatePhase();
+        return;
+    }
+
+    const question = questions[currentQuestionIndex];
+    document.getElementById("question").innerText = question.question;
+    const optionsList = document.getElementById("options");
+    optionsList.innerHTML = "";
+
+    question.options.forEach(option => {
+        const li = document.createElement("li");
+        li.innerText = option;
+        li.onclick = () => checkAnswer(option, question.answer, li);
+        optionsList.appendChild(li);
+    });
+
+    resetTimer();
+}
+
+// Add Next button dynamically
+document.getElementById("quiz-section").insertAdjacentHTML(
+    "beforeend",
+    `<button id="next-btn" style="display: none;" onclick="nextQuestion()" disabled>Next</button>`
+);
 
 // Function to handle the next question navigation
 function nextQuestion() {
@@ -163,6 +246,7 @@ function resetTimer() {
     timer = setInterval(() => {
         timeLeft--;
         updateTimerDisplay();
+
         if (timeLeft <= 0) {
             clearInterval(timer);
             currentQuestionIndex++;
@@ -177,46 +261,6 @@ function updateTimerDisplay() {
     const circleCircumference = 339.12;
     document.getElementById("timer-circle").style.strokeDashoffset =
         circleCircumference - (circleCircumference * timeLeft) / 30;
-}
-
-// Function to update the phase
-function updatePhase() {
-    if (currentPhase === "basic" && score >= 2) {
-        completedPhases.basic = true;
-        document.getElementById("intermediate-btn").disabled = false;
-        alert("Intermediate phase unlocked!");
-        showScenarioPage();
-    } else if (currentPhase === "intermediate" && score >= 2) {
-        completedPhases.intermediate = true;
-        document.getElementById("advanced-btn").disabled = false;
-        alert("Advanced phase unlocked!");
-        showScenarioPage();
-    } else if (currentPhase === "advanced" && score >= 2) {
-        completedPhases.advanced = true;
-        alert("Congratulations! You've completed the game.");
-        showCongratulationsPage();
-    } else {
-        alert("Try again!");
-        showScenarioPage();
-    }
-}
-
-// Function to show the Scenario Page
-function showScenarioPage() {
-    document.getElementById("quiz-container").style.display = "none";
-    document.getElementById("scenario-page").style.display = "flex";
-}
-
-// Function to show the Congratulations Page
-function showCongratulationsPage() {
-    document.getElementById("quiz-container").style.display = "none";
-    document.getElementById("congratulations-page").style.display = "flex";
-
-    endTime = Date.now();
-    const timeTaken = Math.round((endTime - startTime) / 1000);
-    const timeDisplay = document.createElement("p");
-    timeDisplay.innerText = `Time taken: ${timeTaken} seconds`;
-    document.getElementById("congratulations-page").appendChild(timeDisplay);
 }
 
 // Function to restart the quiz
