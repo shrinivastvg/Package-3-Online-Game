@@ -1,0 +1,445 @@
+/* Global Styles */
+body {
+    font-family: Garamond, serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+/* Welcome Page Styling */
+#welcome-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Full screen height */
+    background-color: #f5f5f5;
+}
+
+#welcome-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 900px;
+    width: 100%;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background-color: #fff;
+    border-radius: 10px;
+}
+
+#welcome-text {
+    flex: 1;
+    text-align: left;
+    padding-right: 20px;
+}
+
+#welcome-text h1 {
+    font-size: 2em;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+#welcome-text p {
+    font-size: 1em;
+    color: #555;
+}
+
+#welcome-right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#welcome-image {
+    max-width: 100%;
+    max-height: 200px;
+    margin-bottom: 20px;
+}
+
+#user-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+#user-form label {
+    font-size: 1em;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+#user-form input {
+    padding: 8px;
+    width: 100%;
+    max-width: 200px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+#user-form button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: all 0.3s ease;
+}
+
+#user-form button:hover {
+    background-color: #0056b3;
+}
+
+/* Scenario Page Styling */
+#scenario-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: left;
+    padding: 20px;
+    min-height: 100vh;
+    background-color: #f5f5f5;
+}
+
+.scenario-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px;
+}
+
+.scenario-left h2 {
+    font-size: 1.8em;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.scenario-left p {
+    font-size: 1em;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.scenario-left ul {
+    list-style: disc;
+    margin-left: 20px;
+}
+
+.scenario-right {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.scenario-image {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Quiz Layout */
+#quiz-wrapper {
+    display: flex; /* Flexbox for side-by-side alignment */
+    flex-direction: row; /* Arrange items in a row */
+    align-items: flex-start; /* Align items to the top */
+    justify-content: center; /* Center content horizontally */
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    background: linear-gradient(135deg, #b3ffb3, #ccffcc, #e6ffe6); /* Light green gradient */
+    color: #333;
+    z-index: 1;
+}
+
+/* Question Section */
+#question-section {
+    flex: 2; /* Take up more space compared to timer and score */
+    max-width: 800px;
+    margin-right: 20px; /* Space between question and timer/score */
+    text-align: center; /* Center-align text */
+    font-size: 1.2em;
+}
+
+#question-section h2 {
+    font-size: 1.5em;
+    margin: 0 auto;
+}
+
+/* Options Section */
+#options {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0 0 0; /* Space between question and options */
+    width: 100%;
+    max-width: 600px;
+}
+
+#options li {
+    padding: 12px;
+    border: 1px solid #ddd;
+    margin: 10px 0;
+    cursor: pointer;
+    text-align: center;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+#options li:hover {
+    background-color: #f1f1f1;
+}
+
+#options li.correct {
+    border: 2px solid green;
+    background-color: #e6ffe6;
+}
+
+#options li.incorrect {
+    border: 2px solid red;
+    background-color: #ffe6e6;
+}
+
+/* Timer and Score Section */
+#timer-score-container {
+    flex: 1; /* Smaller width compared to the question box */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start; /* Align to the top */
+    gap: 15px; /* Space between timer and score */
+}
+
+#timer {
+    width: 120px; /* Full visibility for timer */
+    height: 120px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#timer svg {
+    position: absolute;
+    width: 120px;
+    height: 120px;
+}
+
+#timer circle {
+    fill: none;
+    stroke-width: 8;
+    stroke-dasharray: 339.12; /* Circumference of the circle (2πr where r=54) */
+}
+
+#timer circle:first-child {
+    stroke: #ddd;
+}
+
+#timer-circle {
+    stroke: #007bff;
+    stroke-dashoffset: 0;
+    transition: stroke-dashoffset 1s linear;
+}
+
+#time-left {
+    position: absolute;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: red;
+    text-align: center;
+}
+
+#score-display {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+}
+/* Sound Control Section */
+#sound-control {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin: 10px;
+}
+
+#sound-icon {
+    width: 30px; /* Controlled icon size */
+    height: 30px;
+    cursor: pointer;
+    margin-right: 10px; /* Added spacing for alignment */
+}
+
+#mute-button {
+    padding: 5px 10px;
+    font-size: 12px;
+    cursor: pointer;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+#mute-button:hover {
+    background-color: #0056b3;
+}
+
+/* Next Button */
+#next-btn {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+}
+
+#next-btn:disabled {
+    background-color: #ddd;
+    color: #aaa;
+    cursor: not-allowed;
+}
+
+/* Congratulations Page */
+#congratulations-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f5f5f5;
+}
+
+.congratulations-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+/* Background Image */
+#quiz-background-image {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+    opacity: 0.6;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    body {
+        font-size: 14px;
+    }
+
+    #welcome-container {
+        flex-direction: column;
+        text-align: center;
+        padding: 15px;
+    }
+
+    #welcome-text {
+        padding-right: 0;
+        margin-bottom: 15px;
+    }
+
+    #welcome-text h1 {
+        font-size: 1.6em;
+    }
+
+    #welcome-image {
+        max-height: 150px;
+    }
+
+    #user-form input {
+        max-width: 100%;
+    }
+
+    #user-form button {
+        width: 100%;
+    }
+
+    .scenario-container {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    #quiz-wrapper {
+        flex-direction: column; /* Stack items vertically for smaller screens */
+        align-items: center; /* Center-align all content */
+    }
+
+    #question-section {
+        margin-right: 0;
+        font-size: 1em; /* Adjust font size for smaller screens */
+    }
+
+    #options li {
+        font-size: 0.9em;
+        padding: 10px;
+    }
+
+    #timer-score-container {
+        flex-direction: row; /* Align timer and score horizontally on mobile */
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    #timer {
+        width: 120px; /* Reduce size for mobile screens */
+        height: 120px;
+    }
+
+    #timer svg {
+        width: 120px;
+        height: 120px;
+    }
+
+    #time-left {
+        font-size: 1em;
+    }
+
+    #score-display {
+        font-size: 1em;
+    }
+
+    #sound-icon {
+        width: 24px; /* Adjust icon size for mobile */
+        height: 24px;
+    }
+
+    #mute-button {
+        font-size: 10px; /* Adjust button font size for mobile */
+        padding: 4px 8px;
+    }
+
+    #next-btn {
+        width: 90%;
+        padding: 8px;
+        font-size: 0.9em;
+    }
+
+    .congratulations-container h2 {
+        font-size: 1.5em;
+    }
+}
