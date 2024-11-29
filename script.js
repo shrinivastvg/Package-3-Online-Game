@@ -147,16 +147,20 @@ function navigateToScenario() {
 
 // Function to start a quiz phase
 function startPhase(phase) {
-    if (!startTime) startTime = Date.now(); // Record start time
-    currentPhase = phase; // Set the current phase
-    currentQuestionIndex = 0; // Reset question index
+    if (!startTime) startTime = Date.now(); // Record the start time of the quiz
+    currentPhase = phase; // Set the current phase (e.g., basic, intermediate, advanced)
+    currentQuestionIndex = 0; // Reset question index to start from the first question
     score = 0; // Reset score for the phase
-    document.getElementById("score-value").innerText = score;
+    document.getElementById("score-value").innerText = score; // Update the score display in controls
 
-    // Display the quiz and start music
-    showQuiz();
-    loadQuestion(); // Load the first question for the phase
+    // Reset and display the timer
+    resetTimer(); // Ensure the timer starts fresh for the new phase
+
+    // Show the quiz and load the first question
+    showQuiz(); // Display the quiz container and related sections
+    loadQuestion(); // Load the first question for the selected phase
 }
+
 
 // Function to update the phase and handle transitions
 function updatePhase() {
