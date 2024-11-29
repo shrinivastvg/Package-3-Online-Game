@@ -98,11 +98,17 @@ function toggleMute() {
 
 // Function to display the quiz
 function showQuiz() {
+    // Show the quiz container and its child sections
     document.getElementById("quiz-container").style.display = "flex";
+    document.getElementById("controls-container").style.display = "flex"; // Ensure controls are visible
+    document.getElementById("quiz-section").style.display = "flex"; // Ensure quiz section is visible
+
+    // Hide other pages
     document.getElementById("scenario-page").style.display = "none";
     document.getElementById("welcome-page").style.display = "none";
     document.getElementById("congratulations-page").style.display = "none";
-    startMusic(); // Start the music when the quiz is displayed
+
+    startMusic(); // Start the background music when the quiz is displayed
 }
 
 // Function to show the Scenario Page
