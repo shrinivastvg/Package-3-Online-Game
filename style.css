@@ -153,29 +153,39 @@ body {
 
 /* Quiz Layout */
 #quiz-wrapper {
-    position: relative;
     display: flex;
-    flex-direction: column;
+    flex-direction: column; /* Stack elements vertically */
     align-items: center;
+    justify-content: flex-start; /* Align items to the top */
+    width: 100%;
     padding: 20px;
-    min-height: 100vh;
     box-sizing: border-box;
-    background: linear-gradient(135deg, #b3ffb3, #ccffcc, #e6ffe6);
+    background: linear-gradient(135deg, #b3ffb3, #ccffcc, #e6ffe6); /* Background gradient */
     color: #333;
     z-index: 1;
 }
 
+/* Question Section */
 #question-section {
-    text-align: center;
+    width: 100%; /* Full width */
+    max-width: 800px; /* Limit maximum width */
+    margin-bottom: 20px; /* Space below the question box */
+    text-align: center; /* Center-align text inside the question box */
     font-size: 1.2em;
-    margin-bottom: 20px;
 }
 
+#question-section h2 {
+    font-size: 1.5em;
+    margin: 0 auto;
+}
+
+/* Options Section */
 #options {
     list-style: none;
     padding: 0;
-    max-width: 600px;
     margin: 0 auto;
+    width: 100%;
+    max-width: 600px; /* Restrict width for better readability */
 }
 
 #options li {
@@ -374,15 +384,20 @@ body {
         width: 100%;
     }
 
-    #quiz-wrapper {
-        flex-direction: column;
-        gap: 15px;
+        #quiz-wrapper {
+        padding: 15px;
+    }
+
+    #question-section {
+        font-size: 1em; /* Reduce font size for smaller screens */
+        margin-bottom: 15px;
     }
 
     #options li {
         font-size: 0.9em;
         padding: 10px;
     }
+}
 
     #timer {
         width: 80px; /* Reduced size for smaller screens */
