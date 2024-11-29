@@ -12,7 +12,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh; /* Full screen height */
+    min-height: 100vh;
     background-color: #f5f5f5;
 }
 
@@ -141,7 +141,7 @@ body {
 /* Quiz Container */
 #quiz-container {
     display: flex;
-    flex-direction: column; /* Stack controls and quiz section vertically */
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     min-height: 100vh;
@@ -153,7 +153,7 @@ body {
 /* Controls Container */
 #controls-container {
     display: flex;
-    justify-content: space-between; /* Distribute controls evenly */
+    justify-content: space-between;
     align-items: center;
     width: 80%;
     padding: 15px;
@@ -193,6 +193,10 @@ body {
     cursor: pointer;
     transition: background-color 0.3s ease;
     text-align: center;
+}
+
+#options li:hover {
+    background-color: #f1f1f1;
 }
 
 #sound-control {
@@ -273,51 +277,6 @@ body {
     text-align: center;
 }
 
-/* Quiz Section */
-#quiz-section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 80%;
-    max-width: 800px;
-    padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    background-color: #fff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-#question-section {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-#question {
-    font-size: 1.5em;
-    margin-bottom: 15px;
-}
-
-#options {
-    list-style: none;
-    padding: 0;
-    width: 100%;
-}
-
-#options li {
-    padding: 12px;
-    margin: 10px 0;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    text-align: center;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-#options li:hover {
-    background-color: #f1f1f1;
-}
-
 #next-btn {
     margin-top: 20px;
     padding: 10px 20px;
@@ -365,8 +324,28 @@ body {
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 480px) {
     #controls-container, #quiz-section {
-        width: 90%;
+        width: 95%;
+        padding: 10px;
+    }
+
+    #question-section h2 {
+        font-size: 1.2em;
+    }
+
+    #options li {
+        font-size: 0.9em;
+        padding: 10px;
+    }
+
+    #mute-button {
+        font-size: 10px;
+        padding: 4px 8px;
+    }
+
+    #next-btn {
+        font-size: 0.9em;
+        padding: 8px;
     }
 }
