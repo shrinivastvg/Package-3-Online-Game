@@ -63,6 +63,7 @@
 
     <!-- Quiz Container -->
     <div id="quiz-container" style="display: none;">
+        <!-- Controls Section -->
         <div id="controls-container">
             <!-- Sound Control -->
             <div id="sound-control">
@@ -85,6 +86,7 @@
             </div>
         </div>
 
+        <!-- Quiz Section -->
         <div id="quiz-section">
             <!-- Question Section -->
             <div id="question-section">
@@ -106,6 +108,12 @@
             <button onclick="restartQuiz()">Play Again</button>
         </div>
     </div>
+
+    <!-- Audio Element -->
+    <audio id="background-music" loop>
+        <source src="https://github.com/shrinivastvg/Package-3-Online-Game/raw/refs/heads/main/music.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
 
     <script src="script.js"></script>
 </body>
