@@ -229,16 +229,19 @@ function loadQuestion() {
                 li.innerText = option;
                 li.onclick = () => checkAnswer(option, question.answer, li);
                 optionsList.appendChild(li);
-            }, index * 500); // Delay for each option
-        }
-                    if (index === question.options.length - 1) {
-                setTimeout(() => {
-                    document.getElementById("timer-score-container").style.display = "flex";
-                    resetTimer(); // Start the timer after displaying the options
-                }, 500); // Short delay to make it smooth
-            }
-        }, index * 500); // 500ms delay between options
-    }
+
+                // Check if it's the last option
+                if (index === question.options.length - 1) {
+                    setTimeout(() => {
+                        document.getElementById("timer-score-container").style.display = "flex";
+                        resetTimer(); // Start the timer after displaying the options
+                    }, 500); // Short delay to make it smooth
+                }
+            }, index * 500); // 500ms delay between options
+        });
+    });
+}
+
 
         // Show Next button
         setTimeout(() => {
