@@ -263,22 +263,34 @@ body {
     }
 
     #timer-score-container {
-        align-items: stretch;
+        flex-direction: row; /* Align timer and score side by side */
+        justify-content: space-between;
+        align-items: center; /* Ensure proper vertical alignment */
+        width: 100%; /* Take full width */
+        margin: 10px 0; /* Add spacing around */
     }
 
     #timer {
-        width: 100px;
-        height: 100px;
+        width: 70px; /* Smaller timer size for mobile */
+        height: 70px;
+    }
+
+    #timer svg {
+        width: 70px; /* Match timer container size */
+        height: 70px;
     }
 
     #time-left {
-        font-size: 1.2em;
+        font-size: 1em; /* Adjust font size for better fit */
     }
 
+    /* Adjust Score Display */
     #score-display {
-        font-size: 1em;
+        font-size: 1em; /* Smaller font size */
+        text-align: center;
+        padding: 5px; /* Add some padding */
     }
-
+}
     /* Congratulations Page */
     .congratulations-container {
         padding: 15px 20px;
