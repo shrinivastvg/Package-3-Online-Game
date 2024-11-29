@@ -406,8 +406,8 @@ body {
     }
 
     #timer {
-        width: 80px; /* Reduce size for mobile screens */
-        height: 80px;
+        width: 120px; /* Reduce size for mobile screens */
+        height: 120px;
     }
 
     #timer svg {
