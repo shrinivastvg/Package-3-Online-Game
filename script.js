@@ -258,7 +258,7 @@ function restartQuiz() {
     location.reload(); // Refresh the page to restart
 }
 
-// Add Next button dynamically
+// Add Next button dynamically during initialization
 document.getElementById("content-wrapper").insertAdjacentHTML(
     "beforeend",
     `<button id="next-btn" style="display: none;" onclick="nextQuestion()" disabled>Next</button>`
@@ -268,5 +268,37 @@ document.getElementById("content-wrapper").insertAdjacentHTML(
 function nextQuestion() {
     currentQuestionIndex++;
     document.getElementById("next-btn").style.display = "none"; // Hide Next button
-    loadQuestion();
+    loadQuestion(); // Load the next question
+}
+
+// Function to load a question
+function loadQuestion() {
+    const questions = phaseQuestions[currentPhase];
+    if (currentQuestionIndex >= questions.length) {
+        updatePhase(); // Handle phase completion
+        return;
+    }
+
+    const question = questions[currentQuestionIndex];
+    document.getElementById("question").innerText = ""; // Clear question
+    const optionsList = document.getElementById("options");
+    optionsList.innerHTML = ""; // Clear previous options
+
+    // Display question
+    document.getElementById("question").innerText = question.question;
+
+    // Display options dynamically
+    question.options.forEach((option, index) => {
+        const li = document.createElement("li");
+        li.innerText = option;
+        li.onclick = () => {
+            checkAnswer(option, question.answer, li); // Check answer on click
+            document.getElementById("next-btn").style.display = "block"; // Show Next button after selection
+            document.getElementById("next-btn").disabled = false; // Enable Next button
+        };
+        optionsList.appendChild(li);
+    });
+
+    // Reset the timer
+    resetTimer();
 }
