@@ -238,7 +238,7 @@ function loadQuestion() {
                 }, 500); // Short delay to make it smooth
             }
         }, index * 500); // 500ms delay between options
-    });
+    }
 
         // Show Next button
         setTimeout(() => {
