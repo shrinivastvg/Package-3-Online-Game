@@ -7,167 +7,17 @@ body {
     overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
-/* Welcome Page */
-#welcome-page {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh; /* Full viewport height */
-    background-color: #f5f5f5;
-    overflow-y: auto; /* Enable vertical scrolling if needed */
-}
-
-#welcome-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 90%;
-    max-width: 800px;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    text-align: center;
-}
-
-#welcome-text {
-    margin-bottom: 20px;
-}
-
-#welcome-text h1 {
-    font-size: 2em;
-    margin-bottom: 10px;
-    color: #333;
-}
-
-#welcome-text p {
-    font-size: 1em;
-    color: #555;
-}
-
-#welcome-image {
-    max-width: 100%;
-    height: auto;
-    max-height: 200px;
-    object-fit: contain;
-    margin-bottom: 20px;
-}
-
-#user-form {
-    width: 100%;
-    max-width: 400px;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-#user-form label {
-    font-size: 1em;
-    color: #333;
-    text-align: left;
-}
-
-#user-form input {
-    padding: 10px;
-    width: 100%;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    font-size: 1em;
-    box-sizing: border-box;
-}
-
-#user-form button {
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1.1em;
-    transition: all 0.3s ease;
-    width: 100%; /* Full-width for better usability */
-}
-
-#user-form button:hover {
-    background-color: #0056b3;
-}
-
-/* Scenario Page */
-#scenario-page {
-    display: none;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-    min-height: 100vh; /* Full viewport height */
-    overflow-y: auto; /* Enable vertical scrolling */
-    background-color: #f5f5f5;
-}
-
-.scenario-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 90%;
-    max-width: 800px;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    margin-bottom: 20px;
-}
-
-.scenario-container h2 {
-    font-size: 1.8em;
-    margin-bottom: 15px;
-    color: #333;
-}
-
-.scenario-container p {
-    font-size: 1em;
-    line-height: 1.6;
-    margin-bottom: 15px;
-}
-
-.difficulty-buttons {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    width: 100%;
-    max-width: 600px;
-    margin-top: 20px;
-}
-
-.difficulty-buttons button {
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1em;
-    transition: all 0.3s ease;
-}
-
-.difficulty-buttons button:disabled {
-    background-color: #ddd;
-    cursor: not-allowed;
-}
-
-.difficulty-buttons button:hover:not(:disabled) {
-    background-color: #0056b3;
-}
-
-/* Quiz Section */
+/* Quiz Wrapper */
 #quiz-wrapper {
     display: flex;
     flex-direction: column;
-    justify-content: space-between; /* Spread question and control box evenly */
+    justify-content: space-between;
     align-items: center;
     height: 100vh; /* Full viewport height */
     box-sizing: border-box;
-    background: linear-gradient(135deg, #b3ffb3, #ccffcc, #e6ffe6);
+    background: linear-gradient(135deg, #b3ffb3, #ccffcc, #e6ffe6); /* Background color */
     color: #333;
+    overflow: hidden;
 }
 
 /* Question Section */
@@ -179,7 +29,7 @@ body {
     background-color: #fff;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    margin: 20px auto; /* Center the question box */
+    margin: 20px auto; /* Center align */
 }
 
 #question-section h2 {
@@ -225,14 +75,14 @@ body {
     transform: translateX(-50%);
     width: 100%;
     max-width: 800px;
-    padding: 10px;
     background-color: #f9f9f9;
-    border-top: 1px solid #ddd;
+    padding: 10px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
     z-index: 1000;
+    border-top: 1px solid #ddd;
 }
 
 /* Sound Control Section */
@@ -243,7 +93,7 @@ body {
 }
 
 #sound-icon {
-    width: 24px; /* Adjusted size */
+    width: 24px;
     height: 24px;
     cursor: pointer;
 }
@@ -273,6 +123,8 @@ body {
     cursor: pointer;
     font-size: 1em;
     transition: all 0.3s ease;
+    visibility: visible; /* Ensure the button is visible */
+    display: inline-block; /* Display as an inline-block element */
 }
 
 #next-btn:disabled {
