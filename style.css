@@ -4,6 +4,7 @@ body {
     text-align: center;
     margin: 0;
     padding: 0;
+    background-color: #f5f5f5;
 }
 
 /* Welcome Page Styling */
@@ -11,8 +12,10 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: auto;
+    min-height: 100vh; /* Full screen height */
     background-color: #f5f5f5;
+    position: relative;
+    z-index: 2;
 }
 
 #welcome-container {
@@ -26,6 +29,7 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     background-color: #fff;
     border-radius: 10px;
+    z-index: 2;
 }
 
 #welcome-text {
@@ -103,26 +107,21 @@ body {
     align-items: center;
     text-align: left;
     padding: 20px;
-    background-color: #f5f5f5;
     height: auto;
     justify-content: center;
+    z-index: 2;
 }
 
 .scenario-container {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     align-items: center;
-    width: 80%;
+    width: 90%;
     background-color: #fff;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     margin-bottom: 20px;
-}
-
-.scenario-left {
-    flex: 2;
-    padding: 20px;
 }
 
 .scenario-left h2 {
@@ -137,251 +136,43 @@ body {
     margin-bottom: 15px;
 }
 
-.scenario-left ul {
-    list-style: disc;
-    margin-left: 20px;
-}
-
-.scenario-right {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.scenario-image {
-    width: 100%;
-    max-width: 300px;
-    height: auto;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.difficulty-buttons {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    margin-top: 20px;
-}
-
-.difficulty-buttons button {
-    padding: 10px 20px;
-    font-size: 1em;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    background-color: #007bff;
-    color: white;
-    transition: all 0.3s ease;
-}
-
-.difficulty-buttons button:hover {
-    background-color: #0056b3;
-}
-
-.difficulty-buttons button:disabled {
-    background-color: #ddd;
-    color: #aaa;
-    cursor: not-allowed;
-    box-shadow: none;
-}
-
-/* Media Queries for Responsive Design */
-@media (max-width: 768px) {
-    /* Welcome Page */
-    #welcome-container {
-        flex-direction: column;
-        text-align: center;
-        height: auto;
-        padding: 15px;
-    }
-
-    #welcome-text {
-        padding-right: 0;
-        margin-bottom: 15px;
-    }
-
-    #welcome-text h1 {
-        font-size: 1.8em;
-    }
-
-    #welcome-image {
-        max-height: 150px;
-    }
-
-    #user-form input {
-        max-width: 100%;
-    }
-
-    #user-form button {
-        width: 100%;
-    }
-
-    /* Scenario Page */
-    .scenario-container {
-        flex-direction: column;
-        width: 100%;
-        padding: 15px;
-    }
-
-    .scenario-left {
-        padding: 10px 0;
-    }
-
-    .scenario-left h2 {
-        font-size: 1.5em;
-    }
-
-    .scenario-right {
-        margin-top: 15px;
-    }
-
-    .difficulty-buttons {
-        flex-wrap: wrap;
-        gap: 10px;
-    }
-
-    .difficulty-buttons button {
-        flex: 1 1 calc(50% - 10px);
-    }
-
-    /* Quiz Section */
-    #quiz-wrapper {
-        flex-direction: column;
-        align-items: stretch;
-        gap: 15px;
-    }
-
-    #content-wrapper {
-        align-items: center;
-    }
-
-    #question-section {
-        margin-right: 0;
-        margin-bottom: 15px;
-        text-align: center;
-    }
-
-    #timer-score-container {
-        flex-direction: row; /* Align timer and score side by side */
-        justify-content: space-between;
-        align-items: center; /* Ensure proper vertical alignment */
-        width: 100%; /* Take full width */
-        margin: 10px 0; /* Add spacing around */
-    }
-
-    #timer {
-        width: 70px; /* Smaller timer size for mobile */
-        height: 70px;
-    }
-
-    #timer svg {
-        width: 70px; /* Match timer container size */
-        height: 70px;
-    }
-
-    #time-left {
-        font-size: 1em; /* Adjust font size for better fit */
-    }
-
-    /* Adjust Score Display */
-    #score-display {
-        font-size: 1em; /* Smaller font size */
-        text-align: center;
-        padding: 5px; /* Add some padding */
-    }
-}
-    /* Congratulations Page */
-    .congratulations-container {
-        padding: 15px 20px;
-    }
-
-    .congratulations-container h2 {
-        font-size: 1.8em;
-    }
-
-    .congratulations-container p {
-        font-size: 1em;
-    }
-
-    .congratulations-container button {
-        padding: 8px 16px;
-        font-size: 0.9em;
-    }
-
-    /* Sound Control */
-    #sound-control {
-        flex-direction: row;
-        justify-content: space-between;
-        margin: 5px 10px;
-    }
-
-    #sound-icon {
-        width: 20px;
-        height: 20px;
-    }
-
-    #mute-button {
-        font-size: 12px;
-        padding: 4px 8px;
-    }
-}
-/* Quiz Layout */
-#quiz-wrapper {
-    position: relative; /* Ensure layering with the background image */
-    display: flex;
-    align-items: center; 
-    justify-content: flex-start;
-    width: 100%;
-    padding: 20px;
-    background: linear-gradient(135deg, #b3ffb3, #ccffcc, #e6ffe6); /* Retain light green gradient */
-    color: #333; /* Ensure text contrasts well with the background */
-    box-sizing: border-box;
-    gap: 20px;
-    z-index: 1; /* Place it above the background image */
-}
-
 /* Background Image */
 #quiz-background-image {
-    position: absolute; /* Position the image relative to its container */
+    position: fixed; /* Fixed so it stays in the background */
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Ensure it scales proportionally */
-    z-index: -1; /* Push the image behind other elements */
-    opacity: 0.6; /* Optional: Add transparency for better readability */
+    object-fit: cover; /* Ensure proportional scaling */
+    z-index: -1; /* Behind all content */
+    opacity: 0.6; /* Slight transparency */
 }
 
-/* Content Wrapper (to ensure proper layering) */
-#content-wrapper {
-    position: relative; /* Ensure it is above the background image */
-    z-index: 2; /* Set a higher z-index than the background image */
-}
-
-
-/* Question and Timer Alignment */
-#question-timer-container {
+/* Quiz Layout */
+#quiz-wrapper {
+    position: relative; /* Layered above the background */
     display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
     width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    z-index: 2;
 }
 
 #question-section {
     flex: 1;
-    margin-right: 20px;
-    text-align: left;
-}
-
-#question-section h2 {
-    font-size: 1.5em;
+    text-align: center;
+    font-size: 1.2em;
     margin-bottom: 20px;
 }
 
 #options {
-    list-style-type: none;
+    list-style: none;
     padding: 0;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
 }
 
 #options li {
@@ -411,10 +202,12 @@ body {
 /* Timer and Score Section */
 #timer-score-container {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: space-between;
     align-items: center;
-    justify-content: flex-start;
-    gap: 10px;
+    width: 100%;
+    max-width: 600px;
+    margin: 20px auto;
 }
 
 #timer {
@@ -432,22 +225,6 @@ body {
     height: 120px;
 }
 
-#timer circle {
-    fill: none;
-    stroke-width: 8;
-    stroke-dasharray: 339.12; /* Circumference: 2πr where r=54 */
-}
-
-#timer circle:first-child {
-    stroke: #ddd;
-}
-
-#timer-circle {
-    stroke: #007bff;
-    stroke-dashoffset: 0;
-    transition: stroke-dashoffset 1s linear;
-}
-
 #time-left {
     position: absolute;
     font-size: 1.5em;
@@ -458,8 +235,26 @@ body {
 #score-display {
     font-size: 1.2em;
     font-weight: bold;
-    color: #333;
-    margin-top: 10px;
+    text-align: center;
+}
+
+/* Next Button */
+#next-btn {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+}
+
+#next-btn:disabled {
+    background-color: #ddd;
+    color: #aaa;
+    cursor: not-allowed;
 }
 
 /* Congratulations Page */
@@ -481,203 +276,38 @@ body {
     width: 100%;
 }
 
-.congratulations-container h2 {
-    font-size: 2em;
-    color: #007bff;
-    margin-bottom: 10px;
-}
-
-.congratulations-container p {
-    font-size: 1.2em;
-    margin-bottom: 20px;
-}
-
-.congratulations-container button {
-    padding: 10px 20px;
-    font-size: 1em;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.congratulations-container button:hover {
-    background-color: #0056b3;
-}
-
-/* Sound Control */
-#sound-control {
-    display: flex;
-    flex-direction: column; /* Stack the icon and button vertically */
-    align-items: center; /* Center-align the icon and button */
-    margin: 10px; /* Add spacing around the control */
-}
-
-/* Sound Icon */
-#sound-icon {
-    width: 24px; /* Set the size of the sound icon */
-    height: 24px;
-    margin-bottom: 5px; /* Add spacing between the icon and the button */
-    cursor: pointer; /* Optional: Make the icon clickable */
-}
-
-/* Mute Button */
-#mute-button {
-    padding: 5px 10px;
-    font-size: 14px;
-    cursor: pointer;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-}
-
-#mute-button:hover {
-    background-color: #0056b3;
-}
-
-/* Highlight score updates */
-#score-display.highlight {
-    animation: highlight-score 0.5s ease-in-out;
-}
-
-@keyframes highlight-score {
-    0% { background-color: yellow; }
-    100% { background-color: transparent; }
-}
-
-/* Style for Next button */
-#next-btn {
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1em;
-    margin-top: 20px;
-    transition: background-color 0.3s ease;
-}
-
-#next-btn:disabled {
-    background-color: #ddd;
-    color: #aaa;
-    cursor: not-allowed;
-}
-
-#next-btn:hover:enabled {
-    background-color: #0056b3;
-}
-
+/* Media Queries */
 @media (max-width: 768px) {
-    /* General Layout */
-    body {
-        font-size: 14px; /* Smaller default font size */
-    }
-
-    /* Welcome Page */
-    #welcome-container {
-        flex-direction: column; /* Stack content */
-        align-items: center;
-        text-align: center;
-        padding: 10px;
-    }
-
-    #welcome-text h1 {
-        font-size: 1.5em; /* Smaller heading */
-    }
-
-    #welcome-image {
-        max-height: 120px; /* Adjust image size */
-    }
-
-    #user-form {
-        width: 90%; /* Use available space */
-    }
-
-    /* Quiz Page */
     #quiz-wrapper {
-    position: relative; /* Ensure quiz content is above the background image */
-    z-index: 2; /* Place it above the background */
-}
-
-    #question-section {
-        text-align: center; /* Center-align question */
-        font-size: 1em;
-        margin-bottom: 10px;
-    }
-
-    #options {
-        width: 100%; /* Ensure options use full width */
-        padding: 0;
-    }
-
-    #options li {
-        font-size: 0.9em; /* Smaller option text */
-        padding: 10px;
-    }
-
-    /* Timer and Score Section */
-    #timer-score-container {
-        flex-direction: row; /* Align timer and score horizontally */
-        justify-content: space-around;
-        width: 100%;
-        margin-bottom: 15px;
+        padding: 15px;
     }
 
     #timer {
-        width: 80px; /* Smaller timer */
-        height: 80px;
+        width: 70px;
+        height: 70px;
+    }
+
+    #timer svg {
+        width: 70px;
+        height: 70px;
     }
 
     #time-left {
-        font-size: 1em; /* Smaller timer text */
+        font-size: 1em;
     }
 
     #score-display {
-        font-size: 1em; /* Smaller score text */
+        font-size: 1em;
     }
 
-    /* Next Button */
     #next-btn {
-        width: 90%; /* Use most of the screen width */
-        margin: 10px auto; /* Center horizontally */
         font-size: 0.9em;
-        padding: 8px;
+        padding: 8px 16px;
+        margin-top: 15px;
     }
 
-    /* Congratulations Page */
-    .congratulations-container {
-        padding: 10px 15px; /* Reduce padding */
-        font-size: 0.9em; /* Smaller text */
-    }
-
-    .congratulations-container h2 {
-        font-size: 1.5em; /* Smaller heading */
-    }
-
-    .congratulations-container p {
-        font-size: 1em; /* Adjust paragraph text size */
-    }
-
-    /* Sound Control */
-    #sound-control {
-        flex-direction: row; /* Align icon and button horizontally */
-        justify-content: space-between;
-        width: 100%;
-        padding: 0 10px;
-    }
-
-    #sound-icon {
-        width: 18px; /* Smaller sound icon */
-        height: 18px;
-    }
-
-    #mute-button {
-        font-size: 0.8em; /* Smaller button text */
-        padding: 4px 8px;
+    #options li {
+        font-size: 0.9em;
+        padding: 10px;
     }
 }
