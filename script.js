@@ -60,7 +60,7 @@ intermediate: [
 let currentQuestionIndex = 0;
 let score = 0;
 let currentPhase = "basic"; // Default phase
-let timeLeft = 20;
+let timeLeft = 30;
 let timer;
 const completedPhases = { basic: false, intermediate: false, advanced: false };
 
@@ -217,7 +217,7 @@ function loadQuestion() {
 // Function to reset the timer
 function resetTimer() {
     clearInterval(timer); // Clear any existing timer
-    timeLeft = 20; // Reset time to 20 seconds
+    timeLeft = 30; // Reset time to 30 seconds
     updateTimerDisplay(); // Update the visual display of the timer
 
     timer = setInterval(() => {
