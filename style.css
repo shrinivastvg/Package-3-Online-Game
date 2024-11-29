@@ -563,3 +563,115 @@ body {
 #next-btn:hover:enabled {
     background-color: #0056b3;
 }
+
+@media (max-width: 768px) {
+    /* General Layout */
+    body {
+        font-size: 14px; /* Smaller default font size */
+    }
+
+    /* Welcome Page */
+    #welcome-container {
+        flex-direction: column; /* Stack content */
+        align-items: center;
+        text-align: center;
+        padding: 10px;
+    }
+
+    #welcome-text h1 {
+        font-size: 1.5em; /* Smaller heading */
+    }
+
+    #welcome-image {
+        max-height: 120px; /* Adjust image size */
+    }
+
+    #user-form {
+        width: 90%; /* Use available space */
+    }
+
+    /* Quiz Page */
+    #quiz-wrapper {
+        flex-direction: column; /* Stack elements vertically */
+        align-items: center;
+        gap: 10px;
+        padding: 15px;
+    }
+
+    #question-section {
+        text-align: center; /* Center-align question */
+        font-size: 1em;
+        margin-bottom: 10px;
+    }
+
+    #options {
+        width: 100%; /* Ensure options use full width */
+        padding: 0;
+    }
+
+    #options li {
+        font-size: 0.9em; /* Smaller option text */
+        padding: 10px;
+    }
+
+    /* Timer and Score Section */
+    #timer-score-container {
+        flex-direction: row; /* Align timer and score horizontally */
+        justify-content: space-around;
+        width: 100%;
+        margin-bottom: 15px;
+    }
+
+    #timer {
+        width: 80px; /* Smaller timer */
+        height: 80px;
+    }
+
+    #time-left {
+        font-size: 1em; /* Smaller timer text */
+    }
+
+    #score-display {
+        font-size: 1em; /* Smaller score text */
+    }
+
+    /* Next Button */
+    #next-btn {
+        width: 90%; /* Use most of the screen width */
+        margin: 10px auto; /* Center horizontally */
+        font-size: 0.9em;
+        padding: 8px;
+    }
+
+    /* Congratulations Page */
+    .congratulations-container {
+        padding: 10px 15px; /* Reduce padding */
+        font-size: 0.9em; /* Smaller text */
+    }
+
+    .congratulations-container h2 {
+        font-size: 1.5em; /* Smaller heading */
+    }
+
+    .congratulations-container p {
+        font-size: 1em; /* Adjust paragraph text size */
+    }
+
+    /* Sound Control */
+    #sound-control {
+        flex-direction: row; /* Align icon and button horizontally */
+        justify-content: space-between;
+        width: 100%;
+        padding: 0 10px;
+    }
+
+    #sound-icon {
+        width: 18px; /* Smaller sound icon */
+        height: 18px;
+    }
+
+    #mute-button {
+        font-size: 0.8em; /* Smaller button text */
+        padding: 4px 8px;
+    }
+}
