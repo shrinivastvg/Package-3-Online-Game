@@ -56,13 +56,18 @@ intermediate: [
     { question: "10. Which mitigation strategy can be applied to minimize the impact of land acquisition on local communities during the Kancheepuram Water Supply Project?", options: ["Adequate compensation and resettlement plans for displaced communities", "Displacement of communities without compensation", "Ignoring land acquisition concerns", "Relocating all vendors without consultation"], answer: "Adequate compensation and resettlement plans for displaced communities" }
 ],
 };
-
 let currentQuestionIndex = 0;
 let score = 0;
 let currentPhase = "basic"; // Default phase
 let timeLeft = 30;
 let timer;
+let startTime; // To track the start time of the quiz
+let endTime; // To track the end time of the quiz
 const completedPhases = { basic: false, intermediate: false, advanced: false };
+
+// Add sound effects
+const correctSound = new Audio("correct.mp3");
+const wrongSound = new Audio("wrong.mp3");
 
 // Get the audio element
 const backgroundMusic = document.getElementById("background-music");
@@ -113,6 +118,13 @@ function showScenarioPage() {
 function showCongratulationsPage() {
     hideQuiz(); // Stop music and hide the quiz container
     document.getElementById("congratulations-page").style.display = "flex";
+
+    endTime = Date.now(); // Record the end time
+    const totalTime = Math.round((endTime - startTime) / 1000); // Calculate the total time in seconds
+    const congratsPage = document.getElementById("congratulations-page");
+    const timeDisplay = document.createElement("p");
+    timeDisplay.innerText = `Time taken: ${totalTime} seconds`;
+    congratsPage.appendChild(timeDisplay);
 }
 
 // Function to navigate from the Welcome Page to the Scenario Page
@@ -132,6 +144,7 @@ function navigateToScenario() {
 
 // Function to start a quiz phase
 function startPhase(phase) {
+    if (!startTime) startTime = Date.now(); // Record start time
     currentPhase = phase; // Set the current phase
     currentQuestionIndex = 0; // Reset question index
     score = 0; // Reset score for the phase
@@ -139,7 +152,6 @@ function startPhase(phase) {
 
     // Display the quiz and start music
     showQuiz();
-
     loadQuestion(); // Load the first question for the phase
 }
 
@@ -168,14 +180,20 @@ function updatePhase() {
     }
 }
 
-    
 // Function to check the answer
 function checkAnswer(selectedOption, correctAnswer, element) {
     if (selectedOption === correctAnswer) {
+        correctSound.play(); // Play correct sound
         score++;
         element.classList.add("correct");
         document.getElementById("score-value").innerText = score; // Update displayed score
+
+        // Highlight score update
+        const scoreDisplay = document.getElementById("score-display");
+        scoreDisplay.classList.add("highlight");
+        setTimeout(() => scoreDisplay.classList.remove("highlight"), 500); // Remove highlight
     } else {
+        wrongSound.play(); // Play wrong sound
         element.classList.add("incorrect");
         document.querySelectorAll("#options li").forEach(li => {
             if (li.innerText === correctAnswer) {
@@ -184,10 +202,7 @@ function checkAnswer(selectedOption, correctAnswer, element) {
         });
     }
 
-    setTimeout(() => {
-        currentQuestionIndex++;
-        loadQuestion();
-    }, 1000); // Delay before loading the next question
+    document.getElementById("next-btn").disabled = false; // Enable Next button
 }
 
 // Function to load a question
@@ -199,19 +214,39 @@ function loadQuestion() {
     }
 
     const question = questions[currentQuestionIndex];
-    document.getElementById("question").innerText = question.question;
+    document.getElementById("question").innerText = ""; // Clear question
     const optionsList = document.getElementById("options");
-    optionsList.innerHTML = "";
+    optionsList.innerHTML = ""; // Clear previous options
 
-    question.options.forEach(option => {
-        const li = document.createElement("li");
-        li.innerText = option;
-        li.onclick = () => checkAnswer(option, question.answer, li);
-        optionsList.appendChild(li);
-    });
+    // Display question first
+    setTimeout(() => {
+        document.getElementById("question").innerText = question.question;
 
-    resetTimer(); // Start/reset the timer for the current question
+        // Display options one by one
+        question.options.forEach((option, index) => {
+            setTimeout(() => {
+                const li = document.createElement("li");
+                li.innerText = option;
+                li.onclick = () => checkAnswer(option, question.answer, li);
+                optionsList.appendChild(li);
+            }, index * 500); // Delay for each option
+        });
 
+        // Show Next button
+        setTimeout(() => {
+            document.getElementById("next-btn").style.display = "block"; // Show Next button after options appear
+        }, question.options.length * 500);
+
+    }, 500); // Delay for showing the question
+
+    resetTimer(); // Start/reset the timer after options appear
+}
+
+// Add a function to handle next question navigation
+function nextQuestion() {
+    currentQuestionIndex++;
+    document.getElementById("next-btn").style.display = "none"; // Hide Next button
+    loadQuestion();
 }
 
 // Function to reset the timer
@@ -247,3 +282,10 @@ function updateTimerDisplay() {
 function restartQuiz() {
     location.reload(); // Refresh the page to restart
 }
+
+// Add Next button dynamically
+document.getElementById("content-wrapper").insertAdjacentHTML(
+    "beforeend",
+    `<button id="next-btn" style="display: none;" onclick="nextQuestion()" disabled>Next</button>`
+);
+
