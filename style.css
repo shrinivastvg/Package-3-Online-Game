@@ -215,7 +215,7 @@ body {
 /* Timer and Score Section */
 #timer-score-container {
     flex: 1; /* Smaller width compared to the question box */
-    display: flex;
+    display: none;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start; /* Align to the top */
