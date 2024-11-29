@@ -205,11 +205,12 @@ body {
 /* Timer and Score Section */
 #timer-score-container {
     display: flex;
+    flex-direction: row; /* Align timer and score horizontally */
     justify-content: space-between;
     align-items: center;
-    margin-top: 20px;
     width: 100%;
     max-width: 600px;
+    margin: 20px auto;
 }
 
 #timer {
@@ -227,13 +228,60 @@ body {
     height: 120px;
 }
 
-#time-left {
-    position: absolute;
-    font-size: 1.5em;
-    font-weight: bold;
-    color: red;
+#timer circle {
+    fill: none;
+    stroke-width: 8;
+    stroke-dasharray: 339.12; /* Circumference: 2πr where r=54 */
 }
 
+#timer circle:first-child {
+    stroke: #ddd;
+}
+
+#timer-circle {
+    stroke: #007bff;
+    stroke-dashoffset: 0;
+    transition: stroke-dashoffset 1s linear;
+}
+
+#time-left {
+    position: absolute;
+    font-size: 1.2em; /* Adjusted font size */
+    font-weight: bold;
+    color: red;
+    text-align: center;
+}
+
+/* Sound Control Section */
+#sound-control {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin: 10px;
+}
+
+#sound-icon {
+    width: 30px; /* Controlled icon size */
+    height: 30px;
+    cursor: pointer;
+    margin-right: 10px; /* Added spacing for alignment */
+}
+
+#mute-button {
+    padding: 5px 10px;
+    font-size: 12px;
+    cursor: pointer;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+#mute-button:hover {
+    background-color: #0056b3;
+}
 #score-display {
     font-size: 1.2em;
     font-weight: bold;
