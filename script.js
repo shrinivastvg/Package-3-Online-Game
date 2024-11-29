@@ -207,6 +207,8 @@ function checkAnswer(selectedOption, correctAnswer, element) {
 
 // Function to load a question
 function loadQuestion() {
+    clearInterval(timer); // Clear any existing timer to avoid overlap
+
     const questions = phaseQuestions[currentPhase];
     if (currentQuestionIndex >= questions.length) {
         updatePhase(); // Handle phase completion
@@ -282,6 +284,8 @@ function updateTimerDisplay() {
     const circleCircumference = 339.12; // Circumference of the timer circle
     document.getElementById("timer-circle").style.strokeDashoffset =
         circleCircumference - (circleCircumference * timeLeft) / 30;
+
+    // Reset the "time-up" class when the timer restarts
     document.getElementById("timer").classList.remove("time-up");
 }
 
