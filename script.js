@@ -239,7 +239,7 @@ function updateTimerDisplay() {
     document.getElementById("time-left").innerText = timeLeft;
     const circleCircumference = 339.12; // Circumference of the circle (2πr where r=54)
     document.getElementById("timer-circle").style.strokeDashoffset =
-        circleCircumference - (circleCircumference * timeLeft) / 20;
+        circleCircumference - (circleCircumference * timeLeft) / 30;
     document.getElementById("timer").classList.remove("time-up");
 }
 
