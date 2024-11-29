@@ -179,6 +179,10 @@ function updatePhase() {
 
 // Function to check the answer
 function checkAnswer(selectedOption, correctAnswer, element) {
+    // Add button click animation
+    element.classList.add("button-click");
+    setTimeout(() => element.classList.remove("button-click"), 300); // Remove animation after 300ms
+
     if (selectedOption === correctAnswer) {
         correctSound.play(); // Play correct sound
         score++;
