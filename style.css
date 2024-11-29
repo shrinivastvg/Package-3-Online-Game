@@ -364,3 +364,9 @@ body {
         width: 100%;
     }
 }
+
+@media (max-width: 768px) {
+    #controls-container, #quiz-section {
+        width: 90%;
+    }
+}
