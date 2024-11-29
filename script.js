@@ -111,7 +111,9 @@ function toggleMute() {
 // Function to show the Scenario Page
 function showScenarioPage() {
     hideQuiz(); // Stop music and hide the quiz container
-    document.getElementById("scenario-page").style.display = "flex";
+    const scenarioPage = document.getElementById("scenario-page");
+    scenarioPage.style.display = "flex";
+    scenarioPage.style.overflowY = "auto"; // Enable vertical scrolling
 }
 
 // Function to show the Congratulations Page
@@ -140,6 +142,7 @@ function navigateToScenario() {
 
     document.getElementById("welcome-page").style.display = "none";
     document.getElementById("scenario-page").style.display = "flex";
+    document.getElementById("scenario-page").style.overflowY = "auto"; // Enable vertical scrolling for scenario page
 }
 
 // Function to start a quiz phase
