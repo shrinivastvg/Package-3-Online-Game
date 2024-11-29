@@ -216,31 +216,36 @@ function loadQuestion() {
     }
 
     const question = questions[currentQuestionIndex];
-    document.getElementById("question").innerText = ""; // Clear question
+    const questionBox = document.getElementById("question");
     const optionsList = document.getElementById("options");
-    optionsList.innerHTML = ""; // Clear previous options
 
-    // Display question after a short delay
+    // Clear previous question and options
+    questionBox.innerText = "";
+    optionsList.innerHTML = "";
+
+    // Display question with a short delay
     setTimeout(() => {
-        document.getElementById("question").innerText = question.question;
+        questionBox.innerText = question.question;
 
         // Display options one by one with animation
         question.options.forEach((option, index) => {
             setTimeout(() => {
                 const li = document.createElement("li");
                 li.innerText = option;
-                li.onclick = () => checkAnswer(option, question.answer, li);
+                li.onclick = () => checkAnswer(option, question.answer, li); // Check answer on click
                 optionsList.appendChild(li);
 
-                // Check if it's the last option
+                // If it's the last option, reset the timer
                 if (index === question.options.length - 1) {
                     setTimeout(() => {
                         document.getElementById("timer-score-container").style.display = "flex";
-                        resetTimer(); // Start/reset the timer after displaying options
-                    }, 500); // Small delay for smoothness
+                        resetTimer(); // Start/reset the timer after options appear
+                    }, 500); // Short delay for smoothness
                 }
-            }, index * 500); // Staggered display of options
+            }, index * 500); // Staggered appearance of options
         });
+    }, 500); // Delay before showing the question
+}
 
         // Show "Next" button after all options appear
         setTimeout(() => {
