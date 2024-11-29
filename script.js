@@ -177,20 +177,21 @@ function updatePhase() {
     }
 }
 
-// Function to check the answer
 function checkAnswer(selectedOption, correctAnswer, element) {
     // Add button click animation
     element.classList.add("button-click");
     setTimeout(() => element.classList.remove("button-click"), 300); // Remove animation after 300ms
 
+    // Check if the selected option is correct
     if (selectedOption === correctAnswer) {
-        correctSound.play(); // Play correct sound
-        score++;
-        element.classList.add("correct");
-        document.getElementById("score-value").innerText = score; // Update displayed score
+        correctSound.play(); // Play correct answer sound
+        score++; // Increase the score
+        element.classList.add("correct"); // Highlight correct option
+        document.getElementById("score-value").innerText = score; // Update the score display
     } else {
-        wrongSound.play(); // Play wrong sound
-        element.classList.add("incorrect");
+        wrongSound.play(); // Play incorrect answer sound
+        element.classList.add("incorrect"); // Highlight incorrect option
+        // Highlight the correct answer
         document.querySelectorAll("#options li").forEach((li) => {
             if (li.innerText === correctAnswer) {
                 li.classList.add("correct");
@@ -198,7 +199,15 @@ function checkAnswer(selectedOption, correctAnswer, element) {
         });
     }
 
-    document.getElementById("next-btn").disabled = false; // Enable Next button
+    // Disable all options after selection
+    document.querySelectorAll("#options li").forEach((li) => {
+        li.onclick = null; // Remove click event to prevent further clicks
+    });
+
+    // Show and enable the "Next" button
+    const nextButton = document.getElementById("next-btn");
+    nextButton.style.display = "block"; // Make the button visible
+    nextButton.disabled = false; // Enable the button
 }
 
 // Function to load a question
