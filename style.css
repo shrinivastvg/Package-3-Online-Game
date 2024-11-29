@@ -385,13 +385,29 @@ body {
     }
 
     #timer {
+        width: 80px; /* Reduced size for smaller screens */
+        height: 80px;
+    }
+
+    #timer svg {
         width: 80px;
         height: 80px;
     }
 
     #time-left {
-        font-size: 1em;
+        font-size: 1em; /* Reduced font size for smaller screens */
     }
+
+    #sound-icon {
+        width: 24px; /* Adjust icon size for mobile */
+        height: 24px;
+    }
+
+    #mute-button {
+        font-size: 10px; /* Adjust button font size for mobile */
+        padding: 4px 8px;
+    }
+}
 
     #score-display {
         font-size: 1em;
