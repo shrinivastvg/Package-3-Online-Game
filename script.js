@@ -205,7 +205,6 @@ function checkAnswer(selectedOption, correctAnswer, element) {
     document.getElementById("next-btn").disabled = false; // Enable Next button
 }
 
-// Function to load a question
 function loadQuestion() {
     const questions = phaseQuestions[currentPhase];
     if (currentQuestionIndex >= questions.length) {
@@ -218,11 +217,11 @@ function loadQuestion() {
     const optionsList = document.getElementById("options");
     optionsList.innerHTML = ""; // Clear previous options
 
-    // Display question first
+    // Display question after a short delay
     setTimeout(() => {
         document.getElementById("question").innerText = question.question;
 
-        // Display options one by one
+        // Display options one by one with animation
         question.options.forEach((option, index) => {
             setTimeout(() => {
                 const li = document.createElement("li");
@@ -234,37 +233,33 @@ function loadQuestion() {
                 if (index === question.options.length - 1) {
                     setTimeout(() => {
                         document.getElementById("timer-score-container").style.display = "flex";
-                        resetTimer(); // Start the timer after displaying the options
-                    }, 500); // Short delay to make it smooth
+                        resetTimer(); // Start/reset the timer after displaying options
+                    }, 500); // Small delay for smoothness
                 }
-            }, index * 500); // 500ms delay between options
+            }, index * 500); // Staggered display of options
         });
-    });
-}
 
-
-        // Show Next button
+        // Show "Next" button after all options appear
         setTimeout(() => {
-            document.getElementById("next-btn").style.display = "block"; // Show Next button after options appear
+            document.getElementById("next-btn").style.display = "block";
+            document.getElementById("next-btn").disabled = true; // Ensure it's disabled initially
         }, question.options.length * 500);
 
-    }, 500); // Delay for showing the question
-
-    resetTimer(); // Start/reset the timer after options appear
+    }, 500); // Delay before showing the question
 }
 
-// Add a function to handle next question navigation
+// Add Next button navigation
 function nextQuestion() {
     currentQuestionIndex++;
-    document.getElementById("next-btn").style.display = "none"; // Hide Next button
+    document.getElementById("next-btn").style.display = "none"; // Hide "Next" button
     loadQuestion();
 }
 
-// Function to reset the timer
+// Timer management
 function resetTimer() {
     clearInterval(timer); // Clear any existing timer
-    timeLeft = 30; // Reset time to 30 seconds
-    updateTimerDisplay(); // Update the visual display of the timer
+    timeLeft = 30; // Reset time
+    updateTimerDisplay();
 
     timer = setInterval(() => {
         timeLeft--;
@@ -283,7 +278,7 @@ function resetTimer() {
 
 function updateTimerDisplay() {
     document.getElementById("time-left").innerText = timeLeft;
-    const circleCircumference = 339.12; // Circumference of the circle (2πr where r=54)
+    const circleCircumference = 339.12; // Circumference of the timer circle
     document.getElementById("timer-circle").style.strokeDashoffset =
         circleCircumference - (circleCircumference * timeLeft) / 30;
     document.getElementById("timer").classList.remove("time-up");
