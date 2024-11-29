@@ -121,23 +121,6 @@ body {
     margin-bottom: 20px;
 }
 
-.scenario-left h2 {
-    font-size: 1.8em;
-    margin-bottom: 10px;
-    color: #333;
-}
-
-.scenario-left p {
-    font-size: 1em;
-    line-height: 1.6;
-    margin-bottom: 15px;
-}
-
-.scenario-left ul {
-    list-style: disc;
-    margin-left: 20px;
-}
-
 /* Quiz Container */
 #quiz-container {
     display: flex;
@@ -185,6 +168,14 @@ body {
 }
 
 /* Options Styling */
+#options {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+    width: 100%;
+    max-width: 600px;
+}
+
 #options li {
     padding: 12px;
     margin: 10px 0;
@@ -197,6 +188,18 @@ body {
 
 #options li:hover {
     background-color: #f1f1f1;
+}
+
+#options li.correct {
+    background-color: #e6ffe6;
+    border-color: green;
+    color: green;
+}
+
+#options li.incorrect {
+    background-color: #ffe6e6;
+    border-color: red;
+    color: red;
 }
 
 #sound-control {
