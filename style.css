@@ -4,6 +4,7 @@ body {
     text-align: center;
     margin: 0;
     padding: 0;
+    overflow: hidden; /* Prevent scrolling to maintain fixed layout */
 }
 
 /* Welcome Page Styling */
@@ -48,11 +49,11 @@ body {
 /* Quiz Layout */
 #quiz-wrapper {
     display: flex;
-    flex-direction: column; /* Stack items vertically */
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     width: 100%;
-    padding: 20px;
+    height: 100vh; /* Full viewport height */
     box-sizing: border-box;
     background: linear-gradient(135deg, #b3ffb3, #ccffcc, #e6ffe6); /* Light green gradient */
     color: #333;
@@ -61,15 +62,18 @@ body {
 
 /* Question Section */
 #question-section {
-    flex: 1;
-    width: 100%;
+    position: fixed; /* Fixed position */
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%; /* Adjust width for readability */
     max-width: 800px;
     padding: 20px;
     text-align: center;
     background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px; /* Space between question section and controls */
+    z-index: 100; /* Ensure it stays above other elements */
 }
 
 #question-section h2 {
@@ -77,13 +81,11 @@ body {
     margin: 0 auto;
 }
 
-/* Options Section */
 #options {
     list-style: none;
     padding: 0;
     margin: 20px 0 0 0; /* Space between question and options */
     width: 100%;
-    max-width: 600px;
 }
 
 #options li {
@@ -100,29 +102,22 @@ body {
     background-color: #f1f1f1;
 }
 
-#options li.correct {
-    border: 2px solid green;
-    background-color: #e6ffe6;
-}
-
-#options li.incorrect {
-    border: 2px solid red;
-    background-color: #ffe6e6;
-}
-
-/* Controls Box (Sound, Timer, and Score) */
+/* Controls Box */
 #controls-box {
+    position: fixed; /* Fixed position at the bottom */
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
     width: 100%;
     max-width: 800px;
     background-color: #f9f9f9;
     padding: 15px;
     border: 1px solid #ddd;
-    border-radius: 8px;
+    border-radius: 8px 8px 0 0; /* Rounded corners at the top */
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 20px; /* Space below question section */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
 }
 
 /* Sound Control Section */
@@ -163,8 +158,8 @@ body {
 
 /* Timer */
 #timer {
-    width: 120px;
-    height: 120px;
+    width: 100px;
+    height: 100px;
     position: relative;
     display: flex;
     justify-content: center;
@@ -173,8 +168,8 @@ body {
 
 #timer svg {
     position: absolute;
-    width: 120px;
-    height: 120px;
+    width: 100px;
+    height: 100px;
 }
 
 #timer circle {
@@ -195,7 +190,7 @@ body {
 
 #time-left {
     position: absolute;
-    font-size: 24px;
+    font-size: 18px;
     font-weight: bold;
     color: red;
     text-align: center;
@@ -203,10 +198,10 @@ body {
 
 /* Score Display */
 #score-display {
-    font-size: 18px;
+    font-size: 16px;
     font-weight: bold;
     color: #333;
-    padding: 10px;
+    padding: 8px;
     background-color: #f5f5f5;
     border-radius: 8px;
     text-align: center;
