@@ -230,7 +230,7 @@ function loadQuestion() {
                 li.onclick = () => checkAnswer(option, question.answer, li);
                 optionsList.appendChild(li);
             }, index * 500); // Delay for each option
-        });
+        }
                     if (index === question.options.length - 1) {
                 setTimeout(() => {
                     document.getElementById("timer-score-container").style.display = "flex";
