@@ -238,21 +238,11 @@ function loadQuestion() {
                 // If it's the last option, reset the timer
                 if (index === question.options.length - 1) {
                     setTimeout(() => {
-                        document.getElementById("timer-score-container").style.display = "flex";
                         resetTimer(); // Start/reset the timer after options appear
                     }, 500); // Short delay for smoothness
                 }
             }, index * 500); // Staggered appearance of options
         });
-    }, 500); // Delay before showing the question
-}
-
-        // Show "Next" button after all options appear
-        setTimeout(() => {
-            document.getElementById("next-btn").style.display = "block";
-            document.getElementById("next-btn").disabled = true; // Ensure it's disabled initially
-        }, question.options.length * 500);
-
     }, 500); // Delay before showing the question
 }
 
