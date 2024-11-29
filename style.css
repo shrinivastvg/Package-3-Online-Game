@@ -165,11 +165,9 @@ body {
     justify-content: space-between; /* Spread question and control box evenly */
     align-items: center;
     height: 100vh; /* Full viewport height */
-    padding: 0; /* Remove extra padding */
     box-sizing: border-box;
     background: linear-gradient(135deg, #b3ffb3, #ccffcc, #e6ffe6);
     color: #333;
-    overflow: hidden; /* Prevent accidental scrolling */
 }
 
 /* Question Section */
@@ -181,7 +179,7 @@ body {
     background-color: #fff;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    margin-top: 20px;
+    margin: 20px auto; /* Center the question box */
 }
 
 #question-section h2 {
@@ -223,6 +221,8 @@ body {
 #controls-box {
     position: fixed;
     bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
     width: 100%;
     max-width: 800px;
     padding: 10px;
