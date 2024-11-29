@@ -205,6 +205,7 @@ function checkAnswer(selectedOption, correctAnswer, element) {
     document.getElementById("next-btn").disabled = false; // Enable Next button
 }
 
+// Function to load a question
 function loadQuestion() {
     const questions = phaseQuestions[currentPhase];
     if (currentQuestionIndex >= questions.length) {
@@ -294,4 +295,3 @@ document.getElementById("content-wrapper").insertAdjacentHTML(
     "beforeend",
     `<button id="next-btn" style="display: none;" onclick="nextQuestion()" disabled>Next</button>`
 );
-
