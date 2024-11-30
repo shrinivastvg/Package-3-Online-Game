@@ -1,6 +1,6 @@
 const phaseQuestions = {
     basic: [
-    { question: "1. Which of the following best summarizes the need for the project?", options: ["Modernizing the system to meet current and future water demand efficiently.", "Expanding the road network to access more areas.", "Improving sewage treatment facilities for flood resilience.", "Building a new reservoir for tourism purposes."], answer: "Modernizing the system to meet current and future water demand efficiently." },
+        { question: "1. Which of the following best summarizes the need for the project?", options: ["Modernizing the system to meet current and future water demand efficiently.", "Expanding the road network to access more areas.", "Improving sewage treatment facilities for flood resilience.", "Building a new reservoir for tourism purposes."], answer: "Modernizing the system to meet current and future water demand efficiently." },
     { question: "2. What is the first step in identifying the components for implementing the water supply project in Kancheepuram?", options: ["Conducting community meetings", "Assessing gaps in the existing water supply infrastructure", "Estimating project costs", "Preparing financial reports"], answer: "Assessing gaps in the existing water supply infrastructure" },
     { question: "3. What is the role of SCADA systems in the Kancheepuram water supply project?", options: ["Provide water storage solutions", "Automate monitoring and management of water distribution", "Ensure treatment of river water", "Increase the storage capacity of OHTs"], answer: "Automate monitoring and management of water distribution" },
     { question: "4. What is the purpose of constructing feeder mains in the Kancheepuram water supply project?", options: ["To connect individual households to the main water source", "To transport water from source to storage facilities", "To serve as emergency reservoirs", "To ensure groundwater recharge"], answer: "To transport water from source to storage facilities" },
@@ -25,9 +25,9 @@ const phaseQuestions = {
     { question: "23. What is the main objective of the Street Vendors (Protection of Livelihood and Regulation of Street Vending) Act, 2014, in relation to urban infrastructure projects like the Kancheepuram Water Supply Scheme?", options: ["To regulate the pricing of water supplied to street vendors", "To ensure proper regulation of street vending and provide water supply to vendors in designated areas", "To stop water supply to informal vendors", "To build new water treatment plants for street vendors"], answer: "To ensure proper regulation of street vending and provide water supply to vendors in designated areas" },
     { question: "24. According to the Tamil Nadu Occupational Safety, Health, and Working Conditions Rules 2022, which of the following is essential to ensure worker safety at a water supply construction site?", options: ["Regularly updating water tariffs", "Providing safety training to all workers", "Limiting the number of workers on-site", "Reducing the duration of work shifts"], answer: "Providing safety training to all workers" },
     { question: "25. What international framework governs the climate resilience goals incorporated in the Kancheepuram water project?", options: ["Kyoto Protocol", "Paris Agreement", "World Bank Environmental and Social Framework (ESF)", "UN Sustainable Development Goals (SDGs)"], answer: "World Bank Environmental and Social Framework (ESF)" }
-],
-intermediate: [
-    { question: "1. Which of the following is a major risk during the design stage of the Kancheepuram water supply project?", options: ["Inadequate water demand estimation", "Construction delays due to weather", "Lack of proper water treatment methods", "Environmental degradation"], answer: "Inadequate water demand estimation" },
+    ],
+    intermediate: [
+{ question: "1. Which of the following is a major risk during the design stage of the Kancheepuram water supply project?", options: ["Inadequate water demand estimation", "Construction delays due to weather", "Lack of proper water treatment methods", "Environmental degradation"], answer: "Inadequate water demand estimation" },
     { question: "2. During the design phase, what risk might arise if the water demand estimation method is flawed?", options: ["Short-term supply sufficiency", "Excessive water distribution capacity", "Underestimation of future demand", "Over engineering the system"], answer: "Underestimation of future demand" },
     { question: "3. What risk may arise during the implementation phase regarding the SCADA system?", options: ["Lack of automation", "Failure to integrate with existing infrastructure", "Excessive control over the water system", "Increased manual monitoring requirements"], answer: "Failure to integrate with existing infrastructure" },
     { question: "4. What risk could arise during the implementation phase regarding balancing water distribution across all zones of Kancheepuram?", options: ["Uneven pressure in different zones", "Excessive water supply to some zones", "Adequate water pressure throughout", "Increased cost of distribution"], answer: "Uneven pressure in different zones" },
@@ -41,10 +41,10 @@ intermediate: [
     { question: "12. What risk might occur if public participation and stakeholder engagement are inadequate during the implementation phase?", options: ["Faster project approval", "Increased community resistance leading to delays", "Lower costs for the project", "Successful project completion without any issues"], answer: "Increased community resistance leading to delays" },
     { question: "13. What social risk could arise due to the construction activities in the Kancheepuram Water Supply Project?", options: ["Increased population growth in surrounding areas", "Displacement of street vendors and local businesses without proper compensation", "Reduced access to basic amenities", "Faster community development"], answer: "Displacement of street vendors and local businesses without proper compensation" },
     { question: "14. What social risk might arise if proper compensation and resettlement plans are not provided to communities affected by the Kancheepuram Water Supply Project?", options: ["Increased community support for the project", "Loss of livelihood for displaced individuals leading to social unrest", "Improved community relations", "Enhanced job opportunities for displaced families"], answer: "Loss of livelihood for displaced individuals leading to social unrest" },
-    { question: "15. Which measure should be part of the Environmental and Social Management Plan (ESMP) to mitigate risks related to cultural heritage sites near the project area?", options: ["Demolition of cultural heritage sites for construction", "Strict preservation protocols and relocation of affected sites", "Exclusion of all local communities from the project area", "Minimizing project funding"], answer: "Strict preservation protocols and relocation of affected sites" },
-],
-   advanced: [
-    { question: "1. What is an effective strategy to mitigate the risk of unexpected geological conditions during the construction phase?", options: ["Conducting thorough geotechnical investigations before construction begins", "Ignoring geological surveys to save costs", "Relying on only visual inspection of the site", "Starting construction without any preliminary studies"], answer: "Conducting thorough geotechnical investigations before construction begins" },
+    { question: "15. Which measure should be part of the Environmental and Social Management Plan (ESMP) to mitigate risks related to cultural heritage sites near the project area?", options: ["Demolition of cultural heritage sites for construction", "Strict preservation protocols and relocation of affected sites", "Exclusion of all local communities from the project area", "Minimizing project funding"], answer: "Strict preservation protocols and relocation of affected sites" },        
+    ],
+    advanced: [
+{ question: "1. What is an effective strategy to mitigate the risk of unexpected geological conditions during the construction phase?", options: ["Conducting thorough geotechnical investigations before construction begins", "Ignoring geological surveys to save costs", "Relying on only visual inspection of the site", "Starting construction without any preliminary studies"], answer: "Conducting thorough geotechnical investigations before construction begins" },
     { question: "2. How can noise and air pollution during construction be mitigated?", options: ["By using quieter equipment, setting noise limits, and applying dust control measures", "By ignoring noise and pollution regulations", "By increasing work hours to finish construction faster", "By constructing without regard to local environmental standards"], answer: "By using quieter equipment, setting noise limits, and applying dust control measures" },
     { question: "3. How can the risk of failure to integrate the SCADA system with existing infrastructure be mitigated?", options: ["By conducting a detailed system compatibility study and pilot testing before full implementation", "By implementing SCADA without prior compatibility checks", "By reducing the scope of SCADA integration", "By relying on manual control instead of automation"], answer: "By conducting a detailed system compatibility study and pilot testing before full implementation" },
     { question: "4. What is a key strategy to mitigate the risk of insufficient integration of new and old systems in the water supply network?", options: ["By conducting detailed system audits and compatibility checks before integrating systems", "By assuming all systems will be compatible without testing", "By ignoring integration requirements", "By reducing the scope of the integration"], answer: "By conducting detailed system audits and compatibility checks before integrating systems" },
@@ -54,85 +54,27 @@ intermediate: [
     { question: "8. How can the risk of environmental degradation due to excavation during construction be mitigated?", options: ["By using sustainable construction practices and minimizing excavation", "By ignoring soil erosion risks", "By increasing excavation activities", "By avoiding the use of barriers or proper drainage systems"], answer: "By using sustainable construction practices and minimizing excavation" },
     { question: "9. How can the risk of community resistance due to inadequate public participation be mitigated during implementation?", options: ["By conducting regular public consultations and involving local stakeholders in the decision-making process", "By reducing communication with the public to avoid opposition", "By implementing the project without informing the public", "By assuming that all community members will support the project"], answer: "By conducting regular public consultations and involving local stakeholders in the decision-making process" },
     { question: "10. Which mitigation strategy can be applied to minimize the impact of land acquisition on local communities during the Kancheepuram Water Supply Project?", options: ["Adequate compensation and resettlement plans for displaced communities", "Displacement of communities without compensation", "Ignoring land acquisition concerns", "Relocating all vendors without consultation"], answer: "Adequate compensation and resettlement plans for displaced communities" }
-],
+    ]
 };
+
 // Global Variables
 let currentQuestionIndex = 0;
 let score = 0;
-let currentPhase = "basic"; // Default phase
-let timeLeft = 30;
+let currentPhase = "basic";
 let timer;
-let startTime; // To track the start time of the quiz
-let endTime; // To track the end time of the quiz
-const completedPhases = { basic: false, intermediate: false, advanced: false };
+let timeLeft = 30;
+let completedPhases = { basic: false, intermediate: false, advanced: false };
+let startTime;
+let endTime;
 
-// Add sound effects
+// Audio Elements
 const correctSound = new Audio("correct.mp3");
 const wrongSound = new Audio("wrong.mp3");
+const backgroundMusic = new Audio("music.mp3");
 
-// Get the audio element
-const backgroundMusic = document.getElementById("background-music");
+backgroundMusic.loop = true;
 
-// Function to start the music
-function startMusic() {
-    if (backgroundMusic) backgroundMusic.play();
-}
-
-// Function to stop the music
-function stopMusic() {
-    if (backgroundMusic) {
-        backgroundMusic.pause();
-        backgroundMusic.currentTime = 0; // Reset to the beginning
-    }
-}
-
-// Function to display the quiz and start the music
-function showQuiz() {
-    document.getElementById("quiz-container").style.display = "flex";
-    document.getElementById("scenario-page").style.display = "none";
-    document.getElementById("welcome-page").style.display = "none";
-    document.getElementById("congratulations-page").style.display = "none";
-    startMusic(); // Start the music when the quiz is displayed
-}
-
-// Function to hide the quiz and stop the music
-function hideQuiz() {
-    document.getElementById("quiz-container").style.display = "none";
-    stopMusic(); // Stop the music when the quiz is hidden
-}
-
-// Function to toggle mute/unmute
-function toggleMute() {
-    if (!backgroundMusic) return; // Exit if audio element is missing
-    if (backgroundMusic.muted) {
-        backgroundMusic.muted = false;
-        document.getElementById("mute-button").innerText = "Mute";
-    } else {
-        backgroundMusic.muted = true;
-        document.getElementById("mute-button").innerText = "Unmute";
-    }
-}
-
-// Function to show the Scenario Page
-function showScenarioPage() {
-    hideQuiz(); // Stop music and hide the quiz container
-    document.getElementById("scenario-page").style.display = "flex";
-}
-
-// Function to show the Congratulations Page
-function showCongratulationsPage() {
-    hideQuiz(); // Stop music and hide the quiz container
-    document.getElementById("congratulations-page").style.display = "flex";
-
-    endTime = Date.now(); // Record the end time
-    const totalTime = Math.round((endTime - startTime) / 1000); // Calculate the total time in seconds
-    const congratsPage = document.getElementById("congratulations-page");
-    const timeDisplay = document.createElement("p");
-    timeDisplay.innerText = `Time taken: ${totalTime} seconds`;
-    congratsPage.appendChild(timeDisplay);
-}
-
-// Function to navigate from the Welcome Page to the Scenario Page
+// Navigation Functions
 function navigateToScenario() {
     const name = document.getElementById("name").value;
     const department = document.getElementById("department").value;
@@ -143,119 +85,61 @@ function navigateToScenario() {
         return;
     }
 
+    startTime = Date.now();
     document.getElementById("welcome-page").style.display = "none";
     document.getElementById("scenario-page").style.display = "flex";
 }
 
-// Function to start a quiz phase
-function startPhase(phase) {
-    if (!startTime) startTime = Date.now(); // Record start time
-    currentPhase = phase; // Set the current phase
-    currentQuestionIndex = 0; // Reset question index
-    score = 0; // Reset score for the phase
-    document.getElementById("score-value").innerText = score;
-
-    showQuiz(); // Display the quiz
-    loadQuestion(); // Load the first question for the phase
+function showQuiz() {
+    document.getElementById("quiz-container").style.display = "flex";
+    document.getElementById("scenario-page").style.display = "none";
+    startMusic();
 }
 
-// Function to update the phase and handle transitions
-function updatePhase() {
-    const questions = phaseQuestions[currentPhase];
-
-    if (currentPhase === "basic" && score >= 20) {
-        completedPhases.basic = true;
-        document.getElementById("intermediate-btn").disabled = false;
-        alert(`Congratulations! You scored ${score}/25 and unlocked the Intermediate Phase!`);
-        showScenarioPage();
-    } else if (currentPhase === "intermediate" && score >= 10) {
-        completedPhases.intermediate = true;
-        document.getElementById("advanced-btn").disabled = false;
-        alert(`Great work! You scored ${score}/15 and unlocked the Advanced Phase!`);
-        showScenarioPage();
-    } else if (currentPhase === "advanced" && score === questions.length) {
-        completedPhases.advanced = true;
-        alert(`Game Completed! You scored ${score}/${questions.length}`);
-        showCongratulationsPage();
-    } else {
-        alert(`You scored ${score}/${questions.length}. You need a higher score to unlock the next phase!`);
-        showScenarioPage();
-    }
+function showScenarioPage() {
+    document.getElementById("quiz-container").style.display = "none";
+    document.getElementById("scenario-page").style.display = "flex";
+    stopMusic();
 }
 
-// Function to check the answer
-function checkAnswer(selectedOption, correctAnswer, element) {
-    if (selectedOption === correctAnswer) {
-        correctSound.play();
-        score++;
-        element.classList.add("correct");
-        document.getElementById("score-value").innerText = score;
-    } else {
-        wrongSound.play();
-        element.classList.add("incorrect");
-        document.querySelectorAll("#options li").forEach(li => {
-            if (li.innerText === correctAnswer) li.classList.add("correct");
-        });
-    }
+function showCongratulationsPage() {
+    document.getElementById("quiz-container").style.display = "none";
+    document.getElementById("congratulations-page").style.display = "flex";
+    stopMusic();
 
-    document.getElementById("next-btn").disabled = false;
+    endTime = Date.now();
+    const totalTime = Math.round((endTime - startTime) / 1000);
+
+    const name = document.getElementById("name").value;
+    const totalScore = score;
+
+    const minutes = Math.floor(totalTime / 60);
+    const seconds = totalTime % 60;
+
+    const timeTaken = minutes > 0 ? `${minutes} minutes and ${seconds} seconds` : `${seconds} seconds`;
+
+    const message = `
+        Thank you, <strong>${name}</strong>, you have successfully completed the game!
+        <br>Your total score is <strong>${totalScore}</strong>, and you took <strong>${timeTaken}</strong> to complete the game.
+    `;
+    document.getElementById("congratulations-message").innerHTML = message;
 }
 
-// Function to load a question
-function loadQuestion() {
-    const questions = phaseQuestions[currentPhase];
-    if (currentQuestionIndex >= questions.length) {
-        updatePhase();
-        return;
-    }
-
-    const question = questions[currentQuestionIndex];
-    document.getElementById("question").innerText = question.question;
-    const optionsList = document.getElementById("options");
-    optionsList.innerHTML = "";
-
-    question.options.forEach(option => {
-        const li = document.createElement("li");
-        li.innerText = option;
-        li.onclick = () => checkAnswer(option, question.answer, li);
-        optionsList.appendChild(li);
-    });
-
-    resetTimer();
-}
-
-// Add Next button dynamically
-document.getElementById("quiz-section").insertAdjacentHTML(
-    "beforeend",
-    `<button id="next-btn" style="display: none;" onclick="nextQuestion()" disabled>Next</button>`
-);
-
-// Function to handle the next question navigation
-function nextQuestion() {
-    currentQuestionIndex++;
-    document.getElementById("next-btn").style.display = "none";
-    loadQuestion();
-}
-
-// Function to reset the timer
+// Timer Functions
 function resetTimer() {
     clearInterval(timer);
     timeLeft = 30;
     updateTimerDisplay();
-
     timer = setInterval(() => {
         timeLeft--;
         updateTimerDisplay();
-
         if (timeLeft <= 0) {
             clearInterval(timer);
-            currentQuestionIndex++;
-            loadQuestion();
+            nextQuestion();
         }
     }, 1000);
 }
 
-// Function to update the timer display
 function updateTimerDisplay() {
     document.getElementById("time-left").innerText = timeLeft;
     const circleCircumference = 339.12;
@@ -263,7 +147,114 @@ function updateTimerDisplay() {
         circleCircumference - (circleCircumference * timeLeft) / 30;
 }
 
-// Function to restart the quiz
+// Quiz Functions
+function loadQuestion() {
+    const questions = phaseQuestions[currentPhase];
+
+    if (currentQuestionIndex >= questions.length) {
+        updatePhase();
+        return;
+    }
+
+    const question = questions[currentQuestionIndex];
+    document.getElementById("question").innerText = question.question;
+
+    const optionsList = document.getElementById("options");
+    optionsList.innerHTML = "";
+
+    question.options.forEach((option, index) => {
+        const li = document.createElement("li");
+        li.innerText = option;
+        li.onclick = () => checkAnswer(option, question.answer, li);
+        li.style.animationDelay = `${index * 0.2}s`;
+        optionsList.appendChild(li);
+    });
+
+    resetTimer();
+    const nextBtn = document.getElementById("next-btn");
+    nextBtn.disabled = true;
+    nextBtn.style.display = "block";
+}
+
+function checkAnswer(selectedOption, correctAnswer, element) {
+    const options = document.querySelectorAll("#options li");
+
+    options.forEach(li => {
+        li.onclick = null;
+    });
+
+    if (selectedOption === correctAnswer) {
+        correctSound.play();
+        score++;
+        element.classList.add("correct");
+    } else {
+        wrongSound.play();
+        element.classList.add("incorrect");
+
+        options.forEach(li => {
+            if (li.innerText === correctAnswer) li.classList.add("correct");
+        });
+    }
+
+    document.getElementById("score-value").innerText = score;
+    document.getElementById("next-btn").disabled = false;
+}
+
+function nextQuestion() {
+    currentQuestionIndex++;
+
+    if (currentQuestionIndex < phaseQuestions[currentPhase].length) {
+        loadQuestion();
+    } else {
+        updatePhase();
+    }
+
+    document.getElementById("next-btn").disabled = true;
+}
+
+// Phase Update Function
+function updatePhase() {
+    completedPhases[currentPhase] = true;
+    if (currentPhase === "basic") {
+        alert(`You completed the Basic phase with a score of ${score}!`);
+        document.getElementById("intermediate-btn").disabled = false;
+        showScenarioPage();
+    } else if (currentPhase === "intermediate") {
+        alert(`You completed the Intermediate phase with a score of ${score}!`);
+        document.getElementById("advanced-btn").disabled = false;
+        showScenarioPage();
+    } else {
+        alert(`You completed the Advanced phase!`);
+        showCongratulationsPage();
+    }
+}
+
+function startPhase(phase) {
+    currentPhase = phase;
+    currentQuestionIndex = 0;
+    score = 0;
+    document.getElementById("score-value").innerText = score;
+    showQuiz();
+    loadQuestion();
+}
+
+// Restart Function
 function restartQuiz() {
     location.reload();
+}
+
+// Music Control Functions
+function startMusic() {
+    backgroundMusic.play();
+}
+
+function stopMusic() {
+    backgroundMusic.pause();
+    backgroundMusic.currentTime = 0;
+}
+
+// Mute Button Functionality
+function toggleMute() {
+    backgroundMusic.muted = !backgroundMusic.muted;
+    document.getElementById("mute-button").innerText = backgroundMusic.muted ? "Unmute" : "Mute";
 }
