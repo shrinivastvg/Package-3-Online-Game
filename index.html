@@ -105,7 +105,16 @@
             <button onclick="restartQuiz()">Play Again</button>
         </div>
     </div>
+     <script src="script.js"></script>
+    <script>
+        // Select the background music element
+        const backgroundMusic = document.getElementById("background-music");
 
-    <script src="script.js"></script>
+        // Set the volume to a low value (e.g., 20%)
+        backgroundMusic.volume = 0.2;
+
+        // Optionally, start playing (if not set to autoplay)
+        backgroundMusic.play();
+    </script>
 </body>
 </html>
