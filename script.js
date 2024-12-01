@@ -60,6 +60,7 @@ const phaseQuestions = {
 // Global Variables
 let currentQuestionIndex = 0;
 let score = 0;
+let totalScore = 0; // Track total score for the entire game
 let currentPhase = "basic";
 let timer;
 let timeLeft = 30;
@@ -105,25 +106,27 @@ function showScenarioPage() {
 function showCongratulationsPage() {
     document.getElementById("quiz-container").style.display = "none";
     document.getElementById("congratulations-page").style.display = "flex";
-    stopMusic();
+    stopMusic(); // Stop music on the Congratulations Page
 
-    endTime = Date.now();
-    const totalTime = Math.round((endTime - startTime) / 1000);
+    endTime = Date.now(); // Record the end time of the game
+    const totalTime = Math.round((endTime - startTime) / 1000); // Time in seconds
 
     const name = document.getElementById("name").value;
-    const totalScore = score;
 
+    // Convert time to minutes and seconds format
     const minutes = Math.floor(totalTime / 60);
     const seconds = totalTime % 60;
 
     const timeTaken = minutes > 0 ? `${minutes} minutes and ${seconds} seconds` : `${seconds} seconds`;
 
+    // Update the congratulatory message dynamically
     const message = `
         Thank you, <strong>${name}</strong>, you have successfully completed the game!
         <br>Your total score is <strong>${totalScore}</strong>, and you took <strong>${timeTaken}</strong> to complete the game.
     `;
     document.getElementById("congratulations-message").innerHTML = message;
 }
+
 
 // Timer Functions
 function resetTimer() {
@@ -151,54 +154,66 @@ function updateTimerDisplay() {
 function loadQuestion() {
     const questions = phaseQuestions[currentPhase];
 
+    // If all questions are answered, move to the next phase
     if (currentQuestionIndex >= questions.length) {
         updatePhase();
         return;
     }
 
     const question = questions[currentQuestionIndex];
-    document.getElementById("question").innerText = question.question;
-
     const optionsList = document.getElementById("options");
-    optionsList.innerHTML = "";
+    const questionElement = document.getElementById("question");
 
+    // Display the question immediately
+    questionElement.innerText = question.question;
+
+    // Clear and load new options with delay for each option
+    optionsList.innerHTML = "";
     question.options.forEach((option, index) => {
         const li = document.createElement("li");
         li.innerText = option;
-        li.onclick = () => checkAnswer(option, question.answer, li);
-        li.style.animationDelay = `${index * 0.2}s`;
+        li.classList.add("option"); // Add class for animation
+        li.style.animationDelay = `${index * 0.5}s`; // Add delay for animation
+        li.onclick = () => checkAnswer(option, question.answer, li); // Add click handler
         optionsList.appendChild(li);
     });
 
+    // Reset the Next button and timer
     resetTimer();
     const nextBtn = document.getElementById("next-btn");
-    nextBtn.disabled = true;
-    nextBtn.style.display = "block";
+    nextBtn.disabled = true; // Disable Next button initially
+    nextBtn.style.display = "block"; // Ensure visibility
 }
 
+
 function checkAnswer(selectedOption, correctAnswer, element) {
+    // Disable all options after selection
     const options = document.querySelectorAll("#options li");
+    options.forEach(li => (li.onclick = null)); // Prevent multiple selections
 
-    options.forEach(li => {
-        li.onclick = null;
-    });
-
+    // Highlight the selected answer
     if (selectedOption === correctAnswer) {
         correctSound.play();
-        score++;
+        score++; // Increment score for the current phase
+        totalScore++; // Increment total game score
         element.classList.add("correct");
     } else {
         wrongSound.play();
         element.classList.add("incorrect");
 
+        // Highlight the correct answer
         options.forEach(li => {
             if (li.innerText === correctAnswer) li.classList.add("correct");
         });
     }
 
+    // Update score display
     document.getElementById("score-value").innerText = score;
+
+    // Enable the Next button
     document.getElementById("next-btn").disabled = false;
 }
+
 
 function nextQuestion() {
     currentQuestionIndex++;
