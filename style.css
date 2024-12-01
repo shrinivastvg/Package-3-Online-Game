@@ -439,6 +439,70 @@ button:hover {
     background-color: #0056b3;
 }
 /* Responsive Design */
+/* For screens smaller than 768px */
+@media (max-width: 768px) {
+    #welcome-container {
+        flex-direction: column;
+        padding: 15px;
+    }
+
+    #welcome-text {
+        text-align: center;
+        padding: 0;
+    }
+
+    #welcome-text h1 {
+        font-size: 1.5em;
+    }
+
+    #welcome-text p {
+        font-size: 0.9em;
+    }
+
+    #user-form input {
+        width: 90%; /* Make inputs fill more space on smaller screens */
+        max-width: 300px;
+    }
+
+    #user-form button {
+        width: 90%;
+        max-width: 300px;
+    }
+
+    #welcome-image {
+        max-height: 150px; /* Reduce image size for smaller screens */
+    }
+}
+
+/* For screens smaller than 480px */
+@media (max-width: 480px) {
+    #welcome-container {
+        padding: 10px;
+    }
+
+    #welcome-text h1 {
+        font-size: 1.2em;
+    }
+
+    #welcome-text p {
+        font-size: 0.8em;
+    }
+
+    #user-form label {
+        font-size: 0.9em;
+    }
+
+    #user-form input {
+        font-size: 0.9em;
+        padding: 6px;
+    }
+
+    #user-form button {
+        font-size: 0.9em;
+        padding: 8px 15px;
+    }
+}
+
 @media (max-width: 768px) {
     .scenario-container {
         flex-direction: column;
